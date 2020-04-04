@@ -107,11 +107,28 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agm-5x-D2B">
+                                <rect key="frame" x="100" y="562.5" width="175" height="40"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ToR-Uv-sMQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Share in Instagram">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="instagramButtonClick:" destination="8sU-Zu-3s9" eventType="touchUpInside" id="kco-dK-aF5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="sAb-Fn-I3f" firstAttribute="centerY" secondItem="MGO-H6-271" secondAttribute="centerY" id="C47-ye-W90"/>
+                            <constraint firstItem="agm-5x-D2B" firstAttribute="leading" secondItem="1af-u8-9eZ" secondAttribute="leading" constant="100" id="OMp-4S-eUP"/>
+                            <constraint firstItem="1af-u8-9eZ" firstAttribute="trailing" secondItem="agm-5x-D2B" secondAttribute="trailing" constant="100" id="YOP-Kb-5Dg"/>
                             <constraint firstItem="sAb-Fn-I3f" firstAttribute="centerX" secondItem="MGO-H6-271" secondAttribute="centerX" id="ZXc-67-4nl"/>
+                            <constraint firstItem="agm-5x-D2B" firstAttribute="top" secondItem="sAb-Fn-I3f" secondAttribute="bottom" constant="20" id="a93-qg-ruv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1af-u8-9eZ"/>
                     </view>

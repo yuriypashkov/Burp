@@ -42,4 +42,59 @@ class ResultViewController: UIViewController {
         }
     }
 
+    @IBAction func instagramButtonClick(_ sender: Any) {
+        if let image = UIImage(named: "krang_maskot") {
+            //shareToInstagramStories(image: image)
+            shareToInstagramFeed(image: image)
+        }
+    }
+    
+    func shareToInstagramStories(image: UIImage...) {
+        // NOTE: you need a different custom URL scheme for Stories, instagram-stories, add it to your Info.plist!
+        guard let instagramUrl = URL(string: "instagram-stories://share") else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(instagramUrl) {
+            let pasterboardItems = [["com.instagram.sharedSticker.backgroundImage": image as Any]]
+            UIPasteboard.general.setItems(pasterboardItems)
+            UIApplication.shared.open(instagramUrl)
+        } else {
+            // Instagram app is not installed or can't be opened, pop up an alert
+            print("Not working")
+        }
+    }
+    
+    func shareToInstagramFeed(image: UIImage) {
+    // build the custom URL scheme
+    guard let instagramUrl = URL(string: "instagram://app") else {
+        print("Instagram not installed")
+        return
+    }
+
+    // check that Instagram can be opened
+    if UIApplication.shared.canOpenURL(instagramUrl) {
+        // build the image data from the UIImage
+        guard let imageData = image.jpegData(compressionQuality: 100) else {
+            print("Wrong image jpegData")
+            return
+        }
+
+        // build the file URL
+        let path = (NSTemporaryDirectory() as NSString).appendingPathComponent("instagram.ig")
+        let fileUrl = URL(fileURLWithPath: path)
+
+        // write the image data to the file URL
+        do {
+            
+            try imageData.write(to: fileUrl, options: .atomic)
+        } catch {
+            // could not write image data
+            print("Could not write image data")
+            
+            return
+        }
+        }
+    }
+    
 }
