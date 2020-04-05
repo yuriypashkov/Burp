@@ -1,4 +1,5 @@
 import UIKit
+import Photos
 
 class ResultViewController: UIViewController {
 
@@ -40,61 +41,100 @@ class ResultViewController: UIViewController {
             self.maxDbLabel.text = String(format: "%.2f", maxDb)
             self.durationLabel.text = String(format: "%.2f", burpDuration)
         }
+        
     }
 
     @IBAction func instagramButtonClick(_ sender: Any) {
-        if let image = UIImage(named: "krang_maskot") {
-            //shareToInstagramStories(image: image)
-            shareToInstagramFeed(image: image)
+//        print("full Screenshot")
+//            UIGraphicsBeginImageContext(self.view.frame.size)
+//            self.view.layer.render(in: UIGraphicsGetCurrentContext()!)
+//            self.sourceImage = UIGraphicsGetImageFromCurrentImageContext()!
+//            UIGraphicsEndImageContext()
+//            UIImageWriteToSavedPhotosAlbum(self.sourceImage, nil, nil, nil)
+        
+        createImageForStory { (image, error) in
+            if let myImage = image {
+                shareOnInstagram(image: myImage)
+            }
         }
+        
     }
     
-    func shareToInstagramStories(image: UIImage...) {
-        // NOTE: you need a different custom URL scheme for Stories, instagram-stories, add it to your Info.plist!
-        guard let instagramUrl = URL(string: "instagram-stories://share") else {
-            return
-        }
-
-        if UIApplication.shared.canOpenURL(instagramUrl) {
-            let pasterboardItems = [["com.instagram.sharedSticker.backgroundImage": image as Any]]
-            UIPasteboard.general.setItems(pasterboardItems)
-            UIApplication.shared.open(instagramUrl)
-        } else {
-            // Instagram app is not installed or can't be opened, pop up an alert
-            print("Not working")
-        }
-    }
     
-    func shareToInstagramFeed(image: UIImage) {
-    // build the custom URL scheme
-    guard let instagramUrl = URL(string: "instagram://app") else {
-        print("Instagram not installed")
-        return
-    }
-
-    // check that Instagram can be opened
-    if UIApplication.shared.canOpenURL(instagramUrl) {
-        // build the image data from the UIImage
-        guard let imageData = image.jpegData(compressionQuality: 100) else {
-            print("Wrong image jpegData")
-            return
-        }
-
-        // build the file URL
-        let path = (NSTemporaryDirectory() as NSString).appendingPathComponent("instagram.ig")
-        let fileUrl = URL(fileURLWithPath: path)
-
-        // write the image data to the file URL
-        do {
+    func createImageForStory(completion: @escaping (_ result: UIImage?, _ error: String?) -> Void) {
+        let size = CGSize.init(width: 1080, height: 1920)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        if let context = UIGraphicsGetCurrentContext() {
+            let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+            let image = UIImage(named: "back_1")
+            image?.draw(in: rect)
+            let username = "username" as NSString
             
-            try imageData.write(to: fileUrl, options: .atomic)
-        } catch {
-            // could not write image data
-            print("Could not write image data")
-            
-            return
+            let usernameAttributes = [
+                NSAttributedString.Key.font : UIFont.systemFont(ofSize: 38),
+                NSAttributedString.Key.foregroundColor : UIColor.white
+            ]
+            let usernameSize = username.size(withAttributes: usernameAttributes)
+            username.draw(
+                in: CGRect(x: size.width / 2 - usernameSize.width / 2, y: size.height / 2, width: usernameSize.width, height: usernameSize.height
+                ),
+                withAttributes: usernameAttributes
+            )
+                    let profileImage = UIImage(named: "krang_maskot")
+                    let rectImage = CGRect(x: 278, y: 102, width: 196, height: 196)
+                    let bezierPath = UIBezierPath(arcCenter: CGPoint(x: rectImage.midX, y: rectImage.midY), radius: 98, startAngle: 0, endAngle: 2.0*CGFloat(Double.pi), clockwise: true)
+                    context.addPath(bezierPath.cgPath)
+                    context.clip()
+                    profileImage?.draw(in: rectImage)
+                    if let newImage = UIGraphicsGetImageFromCurrentImageContext() {
+                        UIGraphicsEndImageContext()
+                        completion(newImage, nil)
+                    }
+                    else {
+                        UIGraphicsEndImageContext()
+                        completion(nil, "Error 1")
+                    }
+            }
+            else {
+                completion(nil, "Error 3")
+            }
+            UIGraphicsEndImageContext()
         }
-        }
+        
     }
     
-}
+    func shareOnInstagram(image:UIImage) {
+      PHPhotoLibrary.requestAuthorization({
+          (newStatus) in
+              PHPhotoLibrary.shared().performChanges({
+                  PHAssetChangeRequest.creationRequestForAsset(from: image)
+              }, completionHandler: { success, error in
+                  let fetchOptions = PHFetchOptions()
+                  fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+                  let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+                  if let lastAsset = fetchResult.firstObject {
+                      let localIdentifier = lastAsset.localIdentifier
+                      let u = "instagram://library?LocalIdentifier=" + localIdentifier
+                      DispatchQueue.main.async {
+                          UIApplication.shared.open(URL(string: u)!, options: [:], completionHandler: nil)
+                      }
+                  }
+              })
+      })
+    }
+    
+//    func shareToInstagramStories(image: UIImage...) {
+//        // NOTE: you need a different custom URL scheme for Stories, instagram-stories, add it to your Info.plist!
+//        guard let instagramUrl = URL(string: "instagram-stories://share") else {
+//            return
+//        }
+//
+//        if UIApplication.shared.canOpenURL(instagramUrl) {
+//            let pasterboardItems = [["com.instagram.sharedSticker.backgroundImage": image as Any]]
+//            UIPasteboard.general.setItems(pasterboardItems)
+//            UIApplication.shared.open(instagramUrl)
+//        } else {
+//            // Instagram app is not installed or can't be opened, pop up an alert
+//            print("Not working")
+//        }
+//    }
