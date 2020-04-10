@@ -13,6 +13,19 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
     @IBOutlet weak var pushButton: UIButton!
     @IBOutlet weak var previewView: PreviewView!
     
+    
+    @IBAction func testButtonClick(_ sender: Any) {
+        
+        arrayOfDb.append(-31.45)
+        burpDuration = 1.7
+        
+        // улетаем на другой VC с подсчетами результата
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let resultVC = storyboard.instantiateViewController(identifier: "ResultViewController") as UIViewController
+        resultVC.modalPresentationStyle = .fullScreen   // VC на весь экран
+        present(resultVC, animated: true, completion: nil)
+    }
+    
     private enum SessionSetupResult {
         case success
         case notAuthorized
