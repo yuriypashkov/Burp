@@ -60,9 +60,13 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>instagram</string>
-        <string>instagram-stories</string>
+	<array>
+		<string>instagram</string>
+		<string>instagram-stories</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>burpFont.otf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

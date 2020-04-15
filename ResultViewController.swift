@@ -120,7 +120,8 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
         labelStatus.textAlignment = .center
         labelStatus.text = String(status).uppercased()
         labelStatus.textColor = .systemRed
-        labelStatus.font = UIFont.boldSystemFont(ofSize: 40)
+        //labelStatus.font = UIFont.boldSystemFont(ofSize: 40)
+        labelStatus.font = UIFont.init(name: "AM Krang Appizza DEMO", size: 40)
         //view.addSubview(labelStatus)
         
         self.isModalInPresentation = true // свойство для того чтобы нельзя было смахнуть экран
@@ -149,7 +150,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
     
     func createShapeLayer(x: CGFloat, y: CGFloat, color: UIColor) -> CAShapeLayer {
         let result = CAShapeLayer()
-        let circularPath = UIBezierPath(arcCenter: CGPoint(x: x, y: y), radius: 50, startAngle: -CGFloat.pi / 2, endAngle: 3 * CGFloat.pi / 2, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: CGPoint(x: x, y: y), radius: 30, startAngle: -CGFloat.pi / 2, endAngle: 3 * CGFloat.pi / 2, clockwise: true)
         
         let trackLayer = CAShapeLayer()
         trackLayer.path = circularPath.cgPath
