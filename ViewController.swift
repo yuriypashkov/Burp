@@ -13,6 +13,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
     @IBOutlet weak var pushButton: UIButton!
     @IBOutlet weak var previewView: PreviewView!
     
+    @IBOutlet weak var testBtn: UIButton!
     
     @IBAction func testButtonClick(_ sender: Any) {
         
@@ -47,6 +48,9 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //testBtn.isHidden = true
+        
         pushButton.layer.cornerRadius = pushButton.frame.width / 2
         previewView.layer.cornerRadius = previewView.frame.width / 2
         
@@ -55,7 +59,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
         let rootLayer: CALayer = previewView.layer
         rootLayer.masksToBounds = true
         rootLayer.borderWidth = 5
-        rootLayer.borderColor = UIColor(red:26/255, green:188/255, blue:156/255, alpha: 0.7).cgColor
+        rootLayer.borderColor = UIColor(red: 245/255, green: 82/255, blue: 123/255, alpha: 0.7).cgColor
         previewView.videoPreviewLayer.frame = rootLayer.bounds
         
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -317,8 +321,8 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
             startRecording()
             
         } else {
-            pushButton.backgroundColor = .systemGreen
-            pushButton.setTitle("START", for: .normal)
+            pushButton.backgroundColor = UIColor(displayP3Red: 115/255, green: 36/255, blue: 166/255, alpha: 1.0)
+            pushButton.setTitle("РЫГАТЬ", for: .normal)
             
             burpDuration = audioRecorder.currentTime
             meterTimer.invalidate()

@@ -12,15 +12,18 @@ class LabelShapeLayer: CAShapeLayer {
         myLabel.center = CGPoint(x: x, y: y - 75)
         myLabel.textAlignment = .center
         myLabel.text = label
-        myLabel.textColor = .black
+        //myLabel.textColor = UIColor(red: 115/255, green: 36/255, blue: 166.255, alpha: 1.0)
+        myLabel.textColor = .white
+        myLabel.font = UIFont.init(name: "Futura-Bold", size: 18)
         
         
-        myValue = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        myValue = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         myValue.center = CGPoint(x: x, y: y)
         myValue.textAlignment = .center
-        //myValue.text = "\(String(format: "%.2f", "0.00"))"
         myValue.text = "0.00"
-        myValue.textColor = .black
+        //myValue.textColor = UIColor(red: 115/255, green: 36/255, blue: 166.255, alpha: 1.0)
+        myValue.textColor = .white
+        myValue.font = UIFont.boldSystemFont(ofSize: 26)
     }
     
     required init?(coder: NSCoder) {

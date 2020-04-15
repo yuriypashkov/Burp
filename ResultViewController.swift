@@ -1,7 +1,7 @@
 import UIKit
 import Photos
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController, CAAnimationDelegate {
     
     @IBOutlet weak var restartButton: UIButton!
     
@@ -18,10 +18,10 @@ class ResultViewController: UIViewController {
     var status: NSString = ""
     
     var maxDb = arrayOfDb[0]
-    //let testLine = CAShapeLayer()
     
-    var timerTechnics: Timer!
-    //var timerArtistry: Timer!
+    var labelStatus: UILabel!
+    
+    var countOfAnimation = 0
     
     
     override func viewDidLoad() {
@@ -36,16 +36,16 @@ class ResultViewController: UIViewController {
         getCharacter()
         
         // РИСУЕМ КРУГИ
-        let shapeLayerOne = createShapeLayer(x: view.frame.size.width / 4, y: view.frame.size.height / 3, color: .red)
+        let shapeLayerOne = createShapeLayer(x: view.frame.size.width / 4, y: view.frame.size.height / 4, color: .red)
         view.layer.addSublayer(shapeLayerOne)
         
-        let shapeLayerTwo = createShapeLayer(x: 3 * view.frame.size.width / 4, y: view.frame.size.height / 3, color: .brown)
+        let shapeLayerTwo = createShapeLayer(x: 3 * view.frame.size.width / 4, y: view.frame.size.height / 4, color: .brown)
         view.layer.addSublayer(shapeLayerTwo)
         
-        let shapeLayerThree = createShapeLayer(x: view.frame.size.width / 4, y: 4.3 * view.frame.size.height / 7, color: .green)
+        let shapeLayerThree = createShapeLayer(x: view.frame.size.width / 4, y: 4.7 * view.frame.size.height / 9, color: .green)
         view.layer.addSublayer(shapeLayerThree)
         
-        let shapeLayerFour = createShapeLayer(x: 3 * view.frame.size.width / 4, y: 4.3 * view.frame.size.height / 7, color: .yellow)
+        let shapeLayerFour = createShapeLayer(x: 3 * view.frame.size.width / 4, y: 4.7 * view.frame.size.height / 9, color: .yellow)
         view.layer.addSublayer(shapeLayerFour)
         
         // ЗАКОНЧИЛИ РИСОВАТЬ КРУГИ
@@ -61,19 +61,19 @@ class ResultViewController: UIViewController {
 //        view.layer.addSublayer(testLine)
         
         // добавим надписи
-        let labelTechnics = LabelShapeLayer(x: view.frame.size.width / 4, y: view.frame.size.height / 3, label: "ТЕХНИКА")
+        let labelTechnics = LabelShapeLayer(x: view.frame.size.width / 4, y: view.frame.size.height / 4, label: "ТЕХНИКА")
         view.addSubview(labelTechnics.myLabel)
         view.addSubview(labelTechnics.myValue)
         
-        let labelCharisma = LabelShapeLayer(x: 3 * view.frame.size.width / 4, y: view.frame.size.height / 3, label: "ХАРИЗМА")
+        let labelCharisma = LabelShapeLayer(x: 3 * view.frame.size.width / 4, y: view.frame.size.height / 4, label: "ХАРИЗМА")
         view.addSubview(labelCharisma.myLabel)
         view.addSubview(labelCharisma.myValue)
         
-        let labelSkill = LabelShapeLayer(x: view.frame.size.width / 4, y: 4.3 * view.frame.size.height / 7, label: "МАСТЕРСТВО")
+        let labelSkill = LabelShapeLayer(x: view.frame.size.width / 4, y: 4.7 * view.frame.size.height / 9, label: "МАСТЕРСТВО")
         view.addSubview(labelSkill.myLabel)
         view.addSubview(labelSkill.myValue)
         
-        let labelArtistry = LabelShapeLayer(x: 3 * view.frame.size.width / 4, y: 4.3 * view.frame.size.height / 7, label: "АРТИСТИЗМ")
+        let labelArtistry = LabelShapeLayer(x: 3 * view.frame.size.width / 4, y: 4.7 * view.frame.size.height / 9, label: "АРТИСТИЗМ")
         view.addSubview(labelArtistry.myLabel)
         view.addSubview(labelArtistry.myValue)
 
@@ -84,6 +84,7 @@ class ResultViewController: UIViewController {
             let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
             basicAnimation.fillMode = .forwards
             basicAnimation.isRemovedOnCompletion = false
+            basicAnimation.delegate = self
             
             // анимация и заполнение цифр маркера Техника
             self.getTimer(value: self.technics, label: labelTechnics)
@@ -110,20 +111,29 @@ class ResultViewController: UIViewController {
             shapeLayerFour.add(basicAnimation, forKey: "strokeFour")
 //            basicAnimation.toValue = 0.8
 //            self.testLine.add(basicAnimation, forKey: "testLine")
+            
         }
         
         // ранг
-        let labelStatus = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        labelStatus = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
         labelStatus.center = CGPoint(x: view.frame.size.width / 2, y: 5.3 * view.frame.size.height / 7)
         labelStatus.textAlignment = .center
         labelStatus.text = String(status).uppercased()
         labelStatus.textColor = .systemRed
-        view.addSubview(labelStatus)
+        labelStatus.font = UIFont.boldSystemFont(ofSize: 40)
+        //view.addSubview(labelStatus)
         
         self.isModalInPresentation = true // свойство для того чтобы нельзя было смахнуть экран
         restartButton.layer.cornerRadius = restartButton.frame.width / 2
-        
     }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        countOfAnimation += 1
+        if countOfAnimation >= 4 {
+            view.addSubview(labelStatus)
+        }
+    }
+    
     
     func getTimer(value: Double, label: LabelShapeLayer) {
         var counter = 0.00
@@ -136,22 +146,6 @@ class ResultViewController: UIViewController {
             }
         })
     }
-    
-//    func createLabel(x: CGFloat, y: CGFloat, value: Double, label: String) {
-//        let myLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-//        myLabel.center = CGPoint(x: x, y: y - 75)
-//        myLabel.textAlignment = .center
-//        myLabel.text = label
-//        myLabel.textColor = .black
-//        view.addSubview(myLabel)
-//
-//        let myValue = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-//        myValue.center = CGPoint(x: x, y: y)
-//        myValue.textAlignment = .center
-//        myValue.text = "\(String(format: "%.2f", value))"
-//        myValue.textColor = .black
-//        view.addSubview(myValue)
-//    }
     
     func createShapeLayer(x: CGFloat, y: CGFloat, color: UIColor) -> CAShapeLayer {
         let result = CAShapeLayer()
@@ -245,14 +239,21 @@ class ResultViewController: UIViewController {
         print("Sum = \(characterSum)")
     }
     
-    
-    @IBAction func instagramButtonClick(_ sender: Any) {
+    @IBAction func instButtonClick(_ sender: Any) {
         createImageForStory { (image, error) in
             if let myImage = image {
                 shareOnInstagram(image: myImage)
             }
         }
-        
+    }
+    
+    @IBAction func shareButtonClick(_ sender: Any) {
+        createImageForStory { (image, error) in
+            if let myImage = image {
+                let vc = UIActivityViewController(activityItems: [myImage], applicationActivities: [])
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
     }
     
     
