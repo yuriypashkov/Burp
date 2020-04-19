@@ -3,6 +3,7 @@
 import UIKit
 import AVFoundation
 import Photos
+//import Speech
 
 var arrayOfDb = [Float]()
 var burpDuration: Double = 0.0
@@ -17,8 +18,8 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
     
     @IBAction func testButtonClick(_ sender: Any) {
         
-        arrayOfDb.append(-31.45)
-        burpDuration = 1.7
+        arrayOfDb.append(-22.45)
+        burpDuration = 2.7
         
         // улетаем на другой VC с подсчетами результата
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -49,7 +50,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //testBtn.isHidden = true
+        testBtn.isHidden = true
         
         pushButton.layer.cornerRadius = pushButton.frame.width / 2
         previewView.layer.cornerRadius = previewView.frame.width / 2
@@ -293,8 +294,9 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
         buttonPushed = !buttonPushed
         
         if buttonPushed {
-            pushButton.backgroundColor = .systemRed
-            pushButton.setTitle("STOP", for: .normal)
+//            pushButton.backgroundColor = .systemRed
+//            pushButton.setTitle("STOP", for: .normal)
+            pushButton.setImage(UIImage(named: "stopButton"), for: .normal)
             // пишем аудио
             do {
                 try recordingSession.setCategory(.playAndRecord, mode: .default)
@@ -321,8 +323,9 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
             startRecording()
             
         } else {
-            pushButton.backgroundColor = UIColor(displayP3Red: 115/255, green: 36/255, blue: 166/255, alpha: 1.0)
-            pushButton.setTitle("РЫГАТЬ", for: .normal)
+//            pushButton.backgroundColor = UIColor(red: 115/255, green: 36/255, blue: 166/255, alpha: 1.0)
+//            pushButton.setTitle("РЫГАТЬ", for: .normal)
+            pushButton.setImage(UIImage(named: "burpButton"), for: .normal)
             
             burpDuration = audioRecorder.currentTime
             meterTimer.invalidate()
@@ -412,9 +415,9 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
         }
     }
     
-    override open var shouldAutorotate: Bool {
-        return false
-    }
+//    override open var shouldAutorotate: Bool {
+//        return false
+//    }
     
 }
 
