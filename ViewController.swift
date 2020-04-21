@@ -3,7 +3,7 @@
 import UIKit
 import AVFoundation
 import Photos
-//import Speech
+import Speech
 
 var arrayOfDb = [Float]()
 var burpDuration: Double = 0.0
@@ -41,7 +41,6 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
     // Communicate with the session and other session objects on this queue.
     private let sessionQueue = DispatchQueue(label: "session queue")
     private var setupResult: SessionSetupResult = .success
- //   private var spinner: UIActivityIndicatorView!
     
     var recordingSession: AVAudioSession!
     var meterTimer: Timer!
@@ -81,12 +80,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
         sessionQueue.async {
             self.configureSession()
         }
-        
-//        DispatchQueue.main.async {
-//            self.spinner = UIActivityIndicatorView(style: .large)
-//            self.spinner.color = UIColor.white
-//            self.previewView.addSubview(self.spinner)
-//        }
+
         // пишем отдельно аудио для измерений параметров
         recordingSession = AVAudioSession.sharedInstance()
         
@@ -119,6 +113,8 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
             audioRecorder.record()
             
             audioRecorder.isMeteringEnabled = true
+            
+            print(audioFileName)
         } catch {
             finishRecording(success: false)
         }
@@ -128,7 +124,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
     func finishRecording(success: Bool) {
        // print("\(String(format: "%.2f", audioRecorder.currentTime))")
         audioRecorder.stop()
-        audioRecorder.deleteRecording()
+        //audioRecorder.deleteRecording()
         audioRecorder = nil
 
         if success {
@@ -279,6 +275,47 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
         super.viewWillDisappear(animated)
     }
     
+    // SPEECH
+    
+    func haveAnyWords(complition: @escaping(String, Error?) -> Void ) {
+        //var resultString = "nill"
+        
+        SFSpeechRecognizer.requestAuthorization { (authStatus) in
+            if authStatus == SFSpeechRecognizerAuthorizationStatus.authorized {
+                let audioFileName = getDocumentsDirectory().appendingPathComponent("tempRecording.m4a")
+                let recognizer = SFSpeechRecognizer(locale: Locale(identifier: "ru-RU"))
+                let request = SFSpeechURLRecognitionRequest(url: audioFileName)
+        
+                    recognizer?.recognitionTask(with: request, resultHandler: { (result, error) in
+                        guard let result = result else { return }
+                        
+                        if let error = error {
+                        print("there is a error\(error)")
+                            
+                        } else {
+                            //print(result?.bestTranscription.formattedString as Any)
+                            if result.isFinal {
+                                print(result.bestTranscription.formattedString as Any)
+                                complition(result.bestTranscription.formattedString, error)
+                            }
+                            
+//                            if let tempString = result.bestTranscription.formattedString {
+//                                resultString = tempString
+//                                complition(resultString, error)
+//
+//                            }
+                        }
+                    })
+                
+
+            }
+        }
+//
+ //       print(resultString)
+//        return false
+        
+    }
+    
     // MARK: Recording Movies
     
     private var movieFileOutput: AVCaptureMovieFileOutput?
@@ -305,7 +342,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
                 recordingSession.requestRecordPermission { [unowned self] allowed in
                     DispatchQueue.main.async {
                         if allowed {
-                            self.meterTimer = Timer.scheduledTimer(timeInterval: 0.5,
+                            self.meterTimer = Timer.scheduledTimer(timeInterval: 0.2,
                             target: self,
                             selector: #selector(self.updateAudioMeter(_:)),
                             userInfo: nil,
@@ -331,11 +368,33 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
             meterTimer.invalidate()
             finishRecording(success: true)
             
-            // улетаем на другой VC с подсчетами результата
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let resultVC = storyboard.instantiateViewController(identifier: "ResultViewController") as UIViewController
-            resultVC.modalPresentationStyle = .fullScreen   // VC на весь экран
-            present(resultVC, animated: true, completion: nil)
+            // пробуем расшифровать что-нибудь
+            
+            let myQue = DispatchQueue(label: "myQue")
+            //let myBool = false
+            var resultString = ""
+            myQue.sync {
+                self.haveAnyWords { (result, error) in
+                    resultString = result
+                }
+            }
+            
+            myQue.sync {
+                
+            print("ResultString = \(resultString)")
+            if resultString == "nill" {
+                    // улетаем на другой VC с подсчетами результата
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let resultVC = storyboard.instantiateViewController(identifier: "ResultViewController") as UIViewController
+                        resultVC.modalPresentationStyle = .fullScreen   // VC на весь экран
+                        self.present(resultVC, animated: true, completion: nil)
+                    } else {
+                        print("ЕСТЬ СЛОВА")
+                    }
+                
+            }
+            
+                
         }
 
         

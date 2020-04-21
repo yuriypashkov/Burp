@@ -639,8 +639,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
     
     func shareOnInstagram(image:UIImage) {
       PHPhotoLibrary.requestAuthorization({
-          (newStatus) in
-              PHPhotoLibrary.shared().performChanges({
+          (newStatus) in PHPhotoLibrary.shared().performChanges({
                   PHAssetChangeRequest.creationRequestForAsset(from: image)
               }, completionHandler: { success, error in
                   let fetchOptions = PHFetchOptions()
