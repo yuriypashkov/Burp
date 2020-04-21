@@ -10,27 +10,27 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Burp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Рыгометр" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_burp_paper" translatesAutoresizingMaskIntoConstraints="NO" id="IlV-Sz-XpM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_150dpi" translatesAutoresizingMaskIntoConstraints="NO" id="IlV-Sz-XpM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="6N9-Al-c6e">
-                                <rect key="frame" x="62.5" y="83.5" width="250" height="500"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="6N9-Al-c6e">
+                                <rect key="frame" x="67.5" y="83.5" width="240" height="500"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOV-sn-gLi" customClass="PreviewView" customModule="Burp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOV-sn-gLi" customClass="PreviewView" customModule="Рыгометр" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="JYs-i2-5wt"/>
-                                            <constraint firstAttribute="height" constant="250" id="rOj-6q-CCN"/>
+                                            <constraint firstAttribute="width" constant="240" id="JYs-i2-5wt"/>
+                                            <constraint firstAttribute="height" constant="240" id="rOj-6q-CCN"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTl-uQ-z97">
-                                        <rect key="frame" x="50" y="350" width="150" height="150"/>
+                                        <rect key="frame" x="45" y="350" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="QCO-Sd-dk2"/>
                                             <constraint firstAttribute="height" constant="150" id="xB4-Zs-PG6"/>
@@ -79,12 +79,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.40000000000001" y="109.29535232383809"/>
+            <point key="canvasLocation" x="133.59999999999999" y="107.49625187406298"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="BqZ-Kz-UlI">
             <objects>
-                <viewController storyboardIdentifier="ResultViewController" id="8sU-Zu-3s9" customClass="ResultViewController" customModule="Burp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultViewController" id="8sU-Zu-3s9" customClass="ResultViewController" customModule="Рыгометр" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MGO-H6-271">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,6 +157,7 @@
     <resources>
         <image name="backButton" width="264" height="269"/>
         <image name="back_burp_paper" width="1080" height="1920"/>
+        <image name="background_150dpi" width="1080" height="1920"/>
         <image name="burpButton" width="623" height="638"/>
         <image name="instButton" width="272" height="274"/>
         <image name="shareButton" width="659" height="212"/>

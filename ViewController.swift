@@ -50,7 +50,12 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testBtn.isHidden = true
+        //testBtn.isHidden = true
+        
+//        let circleImage = UIImageView(frame: CGRect(x: previewView.frame.origin.x, y: previewView.frame.origin.y, width: previewView.bounds.size.width + 20, height: previewView.bounds.size.height + 20))
+//        circleImage.image = UIImage(named: "circle")
+//        
+//        view.addSubview(circleImage)
         
         pushButton.layer.cornerRadius = pushButton.frame.width / 2
         previewView.layer.cornerRadius = previewView.frame.width / 2
@@ -59,8 +64,8 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
         
         let rootLayer: CALayer = previewView.layer
         rootLayer.masksToBounds = true
-        rootLayer.borderWidth = 5
-        rootLayer.borderColor = UIColor(red: 245/255, green: 82/255, blue: 123/255, alpha: 0.7).cgColor
+       // rootLayer.borderWidth = 5
+        //rootLayer.borderColor = UIColor(red: 245/255, green: 82/255, blue: 123/255, alpha: 0.7).cgColor
         previewView.videoPreviewLayer.frame = rootLayer.bounds
         
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -305,7 +310,7 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
                 recordingSession.requestRecordPermission { [unowned self] allowed in
                     DispatchQueue.main.async {
                         if allowed {
-                            self.meterTimer = Timer.scheduledTimer(timeInterval: 0.5,
+                            self.meterTimer = Timer.scheduledTimer(timeInterval: 0.2,
                             target: self,
                             selector: #selector(self.updateAudioMeter(_:)),
                             userInfo: nil,

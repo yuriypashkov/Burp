@@ -168,6 +168,8 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             labelStatus.text = String(status).uppercased()
             labelStatus.textColor = .black
             labelStatus.font = UIFont.init(name: "v_Billy The Flying Robot BB", size: statusSize)
+            labelStatus.adjustsFontSizeToFitWidth = true
+            labelStatus.minimumScaleFactor = 0.5
             
             // описание
             labelAbout = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: 150))
@@ -177,6 +179,8 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             labelAbout.textColor = UIColor(red: 68/255, green: 45/255, blue: 0/255, alpha: 1.0)
             labelAbout.numberOfLines = 4
             labelAbout.font = UIFont.init(name: "v_Billy The Flying Robot BB", size: aboutSize)
+            labelAbout.adjustsFontSizeToFitWidth = true
+            labelAbout.minimumScaleFactor = 0.5
             
         }
         
@@ -203,7 +207,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             mainImage.center = CGPoint(x: view.frame.size.width / 2, y: view.frame.size.height / 2)
             mainImage.image = UIImage(named: imageName)
             
-            createStatusAndAbout(width: 310, statusSize: 32, aboutSize: 20)
+            createStatusAndAbout(width: 315, statusSize: 32, aboutSize: 20)
         }
         
 
@@ -532,7 +536,9 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             imageName = "ryglis"
         }
         
-        //status = "Леонардо Ры Гаприо"
+        //status = "Губка Рыг Рыготные штаны"
+        //print(String(status).count) <19
+        
         
         about = guys[String(status)]! as NSString
 //        print("Technics = \(technics)")
@@ -606,7 +612,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             let nsParStyle = NSMutableParagraphStyle()
             nsParStyle.alignment = .center
             let aboutAttributes = [
-                NSAttributedString.Key.font : UIFont.init(name: "v_Billy The Flying Robot BB", size: 60),
+                NSAttributedString.Key.font : UIFont.init(name: "v_Billy The Flying Robot BB", size: 54),
                 NSAttributedString.Key.foregroundColor : UIColor(red: 68/255, green: 45/255, blue: 0/255, alpha: 1.0),
                 NSAttributedString.Key.paragraphStyle : nsParStyle
             ]
