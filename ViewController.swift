@@ -64,9 +64,11 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AV
         
         let rootLayer: CALayer = previewView.layer
         rootLayer.masksToBounds = true
-       // rootLayer.borderWidth = 5
-        //rootLayer.borderColor = UIColor(red: 245/255, green: 82/255, blue: 123/255, alpha: 0.7).cgColor
+        rootLayer.borderWidth = 2
+        rootLayer.borderColor = UIColor.black.cgColor
         previewView.videoPreviewLayer.frame = rootLayer.bounds
+       // previewView.videoPreviewLayer.frame.size.width = rootLayer.bounds.size.width - 50
+       // previewView.videoPreviewLayer.frame.size.height = rootLayer.bounds.size.height - 50
         
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
