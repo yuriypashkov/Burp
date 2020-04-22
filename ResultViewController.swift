@@ -113,8 +113,8 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
         }
         
         getCharacter()
-//        print("dB = \(maxDb + 200)")
-//        print("Duration = \(burpDuration)")
+        print("dB = \(maxDb + 200)")
+        print("Duration = \(burpDuration)")
         
         var shapeLayerOne = CAShapeLayer()
         var shapeLayerTwo = CAShapeLayer()
@@ -360,7 +360,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             charisma += (100 * Double.random(in: 0.1...0.5)).rounded() / 100
         }
         characterSum = technics + artistry + skill + charisma
-        //characterSum = 5.6
+        //characterSum = 28.3
         switch characterSum {
         case 0..<6:
             status = "Данила Рыгловский"
@@ -378,7 +378,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             status = "Рыгальф"
             imageName = "rygalf"
         case 10..<10.5:
-            status = "Губка Рыг Рыготные штаны" // не влезает
+            status = "Губка Рыг Рыготные штаны" 
             imageName = "gubka_ryg"
         case 10.5..<11:
             status = "Криштиану Рыгалду"
@@ -444,7 +444,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             status = "Диего Рыгадона"
             imageName = "rygadona"
         case 19..<19.5:
-            status = "Рыгейрис Рыгорожденная" // не влезает
+            status = "Рыгейрис Рыгорожденная"
             imageName = "ryggeris"
         case 19.5..<20:
             status = "Железный рыговек"
@@ -522,7 +522,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             status = "Рыгзилла"
             imageName = "rygzilla"
         case 35..<36:
-            status = "Киану Рыгс"   // описание не влазит 
+            status = "Киану Рыгс"
             imageName = "kianu_rygs"
         case 36..<37:
             status = "Данни Трэхо"
