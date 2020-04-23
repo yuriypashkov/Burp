@@ -19,27 +19,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="6N9-Al-c6e">
-                                <rect key="frame" x="40" y="34" width="240" height="500"/>
+                                <rect key="frame" x="85" y="209" width="150" height="150"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOV-sn-gLi" customClass="PreviewView" customModule="Рыгометр" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="lF1-9A-cfJ">
-                                                <rect key="frame" x="-3" y="-3" width="246" height="246"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="lF1-9A-cfJ" firstAttribute="leading" secondItem="MOV-sn-gLi" secondAttribute="leading" constant="-3" id="3Tm-ZY-p17"/>
-                                            <constraint firstAttribute="bottom" secondItem="lF1-9A-cfJ" secondAttribute="bottom" constant="-3" id="JNV-8z-R0o"/>
-                                            <constraint firstAttribute="width" constant="240" id="JYs-i2-5wt"/>
-                                            <constraint firstAttribute="trailing" secondItem="lF1-9A-cfJ" secondAttribute="trailing" constant="-3" id="acj-HT-rzp"/>
-                                            <constraint firstAttribute="height" constant="240" id="rOj-6q-CCN"/>
-                                            <constraint firstItem="lF1-9A-cfJ" firstAttribute="top" secondItem="MOV-sn-gLi" secondAttribute="top" constant="-3" id="xZ4-cq-ck4"/>
-                                        </constraints>
-                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTl-uQ-z97">
-                                        <rect key="frame" x="45" y="350" width="150" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="QCO-Sd-dk2"/>
                                             <constraint firstAttribute="height" constant="150" id="xB4-Zs-PG6"/>
@@ -81,7 +64,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="previewView" destination="MOV-sn-gLi" id="weI-dV-jHq"/>
                         <outlet property="pushButton" destination="sTl-uQ-z97" id="y9V-ff-Tou"/>
                         <outlet property="testBtn" destination="NB4-5L-b74" id="VPL-5x-Wb9"/>
                     </connections>
@@ -168,7 +150,6 @@
         <image name="back_burp_paper" width="1080" height="1920"/>
         <image name="background_150dpi" width="1080" height="1920"/>
         <image name="burpButton" width="623" height="638"/>
-        <image name="circle" width="776" height="788"/>
         <image name="instButton" width="272" height="274"/>
         <image name="shareButton" width="659" height="212"/>
     </resources>
