@@ -21,11 +21,17 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         arrayOfDb.append(-22.45)
         burpDuration = 2.7
         
-        // улетаем на другой VC с подсчетами результата
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let resultVC = storyboard.instantiateViewController(identifier: "ResultViewController") as UIViewController
-        resultVC.modalPresentationStyle = .fullScreen   // VC на весь экран
-        present(resultVC, animated: true, completion: nil)
+        
+        if #available(iOS 13.0, *) {
+        // улетаем на другой VC с подсчетами результата
+            let resultVC = storyboard.instantiateViewController(identifier: "ResultViewController") as UIViewController
+            resultVC.modalPresentationStyle = .fullScreen   // VC на весь экран
+            present(resultVC, animated: true, completion: nil)
+        } else {
+            let oldResultVC = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as UIViewController
+            present(oldResultVC, animated: true, completion: nil)
+        }
     }
     
     var recordingSession: AVAudioSession!
@@ -35,7 +41,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testBtn.isHidden = true
+        //testBtn.isHidden = true
         // добавим одно значение в массив чтобы не было ошибок при касании на долю секунды по кнопке
         arrayOfDb.append(-160.0)
         
@@ -109,18 +115,18 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         burpDuration = audioRecorder.currentTime
         meterTimer.invalidate()
         finishRecording(success: true)
-         //if #available(iOS 13.0, *) {
-        // улетаем на другой VC с подсчетами результата
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let resultVC = storyboard.instantiateViewController(identifier: "ResultViewController") as UIViewController
-        resultVC.modalPresentationStyle = .fullScreen   // VC на весь экран
-        present(resultVC, animated: true, completion: nil)
-       //  } else {
-            //self.performSegue(withIdentifier: "ResultViewController", sender: self)
-           // let yourVc = ResultViewController.init(nibName: "ResultViewController", bundle: nil)
-            //let yourVc = ResultViewController()
-            //self.present(yourVc, animated: true, completion: nil)
-        //}
+        
+        if #available(iOS 13.0, *) {
+        // улетаем на другой VC с подсчетами результата
+            let resultVC = storyboard.instantiateViewController(identifier: "ResultViewController") as UIViewController
+            resultVC.modalPresentationStyle = .fullScreen   // VC на весь экран
+            present(resultVC, animated: true, completion: nil)
+        } else {
+            let oldResultVC = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as UIViewController
+            present(oldResultVC, animated: true, completion: nil)
+        }
 
     }
     

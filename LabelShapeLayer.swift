@@ -19,7 +19,7 @@ class LabelShapeLayer: CAShapeLayer {
         myLabel.font = UIFont.init(name: "v_Billy The Flying Robot BB", size: 24)
         
         
-        myValue = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        myValue = UILabel(frame: CGRect(x: 0, y: 0, width: 65, height: 60))
         myValue.center = CGPoint(x: x, y: y)
         myValue.textAlignment = .center
         myValue.text = "0.00"
