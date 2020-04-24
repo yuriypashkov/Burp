@@ -20,7 +20,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
     var about: NSString = ""
     var imageName = ""
     
-    var maxDb = arrayOfDb[0]
+    var maxDb: Float = -160.0
     
     var labelStatus: UILabel!
     var labelAbout: UILabel!
@@ -87,7 +87,16 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
                                   "Неверыгятный Рыгк": "Ты готов в любой момент превратиться в отвратительное рыгающее существо зелёного цвета. Не злись, старина!",
                                   "Губка Рыг Рыготные штаны": "Кто прорыгает на дне океана? Именно этот милый, но отрыгительный парень",
                                   "Джон Рыг": "Смертоносный убийца. Известен также как Баба Рыга. Не трожь его пса!",
-                                  "Рыгабло": "Ты рыгающий демон, вылезший в Рыгуарий из бездны ада, чтобы уничтожить все живое"
+                                  "Рыгабло": "Ты рыгающий демон, вылезший в Рыгуарий из бездны ада, чтобы уничтожить все живое",
+                                  "Конор МакРыгор": "Ты прям звезда РыгЭфСи, самый провокационный рыгатор в легком весе",
+                                  "Майк Рыгсон": "Ты можешь откусить человеку ухо, отрыгнуть, сесть в тюрьму и все равно будешь лучшим!",
+                                  "Антонио Бандерыгс": "Ты настоящий эль маррыгачи, красавец и ловелас!",
+                                  "Доктор Рыгус": "Судя по всему, у тебя рыгчанка! Срочно надо взять пункцию отрыжки. И пиво!",
+                                  "Граф Дрыгула": "Вместо пивка ты требуешь пинту кровушки, но отрыжку это не портит!",
+                                  "Рыгулху": "Ты похож на древнего монстра, лежащего на дне океана и ждущего как бы разрушить мир своей рыготой",
+                                  "Рыгакл": "В тебе течет кровь богов, так что совершить двенадцать отрыжечных подвигов для тебя раз плюнуть",
+                                  "Рыгина Рыговицкая": "Ты главарь самого рыготного шабаша на свете. Настоящий Рыгающий дьявол в женском обличии",
+                                  "Рыгги Поп": "Я просто хочу быть твоей  отрыжкой, так погнали!"
     ]
     
     
@@ -247,8 +256,9 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             
         }
         
+        self.isModalInPresentation = true
+
         
-        self.isModalInPresentation = true // свойство для того чтобы нельзя было смахнуть экран
         restartButton.layer.cornerRadius = restartButton.frame.width / 2
         
     }
@@ -300,32 +310,32 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
     func getCharacter() {
         let tempDb = 200 + maxDb
         switch tempDb {
-        case 0..<170:
+        case 0..<188:
             technics = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
             artistry = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
             skill = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
             charisma = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
-        case 170..<180:
+        case 188..<189:
             technics = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
             artistry = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
             skill = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
             charisma = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
-        case 180..<184:
+        case 189..<190:
             technics = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
             artistry = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
             skill = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
             charisma = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
-        case 184..<188:
+        case 190..<192:
             technics = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
             artistry = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
             skill = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
             charisma = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
-        case 188..<192:
+        case 192..<194:
             technics = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
             artistry = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
             skill = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
             charisma = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
-        case 192..<195:
+        case 194..<196:
             technics = (100 * Double.random(in: 6.0...7.5)).rounded() / 100
             artistry = (100 * Double.random(in: 6.0...7.5)).rounded() / 100
             skill = (100 * Double.random(in: 6.0...7.5)).rounded() / 100
@@ -569,7 +579,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
     func createImageForStory(completion: @escaping (_ result: UIImage?, _ error: String?) -> Void) {
         let size = CGSize.init(width: 1080, height: 1920)
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        if let context = UIGraphicsGetCurrentContext() {
+        if UIGraphicsGetCurrentContext() != nil {
             let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
             let image = UIImage(named: "back_burp_result_2")
             image?.draw(in: rect)
