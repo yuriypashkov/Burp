@@ -52,6 +52,11 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         
         // пишем отдельно аудио для измерений параметров
         recordingSession = AVAudioSession.sharedInstance()
+        recordingSession.requestRecordPermission { (allowed) in
+            if allowed {
+                print("Request done")
+            }
+        }
         
         // button animation
         pushButton.addTarget(self, action: #selector(pushBtn(sender:)), for: .touchDown)
