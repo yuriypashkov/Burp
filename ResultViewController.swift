@@ -345,10 +345,10 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             skill = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
             charisma = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
         case 192..<194:
-            technics = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
-            artistry = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
-            skill = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
-            charisma = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
+            technics = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
+            artistry = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
+            skill = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
+            charisma = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
         case 194..<196:
             technics = (100 * Double.random(in: 6.0...7.5)).rounded() / 100
             artistry = (100 * Double.random(in: 6.0...7.5)).rounded() / 100
@@ -363,20 +363,20 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
         
         switch burpDuration {
         case 0..<3:
-            technics += (100 * Double.random(in: 0.5...1)).rounded() / 100
-            artistry += (100 * Double.random(in: 0.5...1)).rounded() / 100
-            skill += (100 * Double.random(in: 0.5...1)).rounded() / 100
-            charisma += (100 * Double.random(in: 0.5...1)).rounded() / 100
+            technics += (100 * Double.random(in: 0.5...0.7)).rounded() / 100
+            artistry += (100 * Double.random(in: 0.5...0.7)).rounded() / 100
+            skill += (100 * Double.random(in: 0.5...0.7)).rounded() / 100
+            charisma += (100 * Double.random(in: 0.5...0.7)).rounded() / 100
         case 3..<5:
-            technics += (100 * Double.random(in: 1...1.5)).rounded() / 100
-            artistry += (100 * Double.random(in: 1...1.5)).rounded() / 100
-            skill += (100 * Double.random(in: 1...1.5)).rounded() / 100
-            charisma += (100 * Double.random(in: 1...1.5)).rounded() / 100
+            technics += (100 * Double.random(in: 0.7...1.0)).rounded() / 100
+            artistry += (100 * Double.random(in: 0.7...1.0)).rounded() / 100
+            skill += (100 * Double.random(in: 0.7...1.0)).rounded() / 100
+            charisma += (100 * Double.random(in: 0.7...1.0)).rounded() / 100
         case 5..<9:
-            technics += (100 * Double.random(in: 1.5...2.0)).rounded() / 100
-            artistry += (100 * Double.random(in: 1.5...2.0)).rounded() / 100
-            skill += (100 * Double.random(in: 1.5...2.0)).rounded() / 100
-            charisma += (100 * Double.random(in: 1.5...2.0)).rounded() / 100
+            technics += (100 * Double.random(in: 1.0...2.0)).rounded() / 100
+            artistry += (100 * Double.random(in: 1.0...2.0)).rounded() / 100
+            skill += (100 * Double.random(in: 1.0...2.0)).rounded() / 100
+            charisma += (100 * Double.random(in: 1.0...2.0)).rounded() / 100
         default:
             technics += (100 * Double.random(in: 0.1...0.5)).rounded() / 100
             artistry += (100 * Double.random(in: 0.1...0.5)).rounded() / 100

@@ -38,16 +38,44 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     var meterTimer: Timer!
     var audioRecorder: AVAudioRecorder!
     
+    var imageStop: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //testBtn.isHidden = true
+        testBtn.isHidden = true
+        
         // добавим одно значение в массив чтобы не было ошибок при касании на долю секунды по кнопке
         arrayOfDb.append(-160.0)
+        
+        imageStop = UIImage(named: "stopButton")
         
         // пишем отдельно аудио для измерений параметров
         recordingSession = AVAudioSession.sharedInstance()
         
+        // button animation
+        pushButton.addTarget(self, action: #selector(pushBtn(sender:)), for: .touchDown)
+        pushButton.addTarget(self, action: #selector(upBtn(sender:)), for: .touchUpInside)
+    }
+    
+    @objc func pushBtn(sender: UIButton) {
+        self.animateView(sender)
+    }
+    
+    @objc func upBtn(sender: UIButton) {
+        self.animateUp(sender)
+    }
+    
+    func animateView(_ viewToAnimate: UIView) {
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseIn, animations: {
+            viewToAnimate.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        }, completion: nil)
+    }
+    
+    func animateUp(_ viewToAnimate: UIView) {
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseIn, animations: {
+            viewToAnimate.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }, completion: nil)
     }
     
     // ФУНКЦИОНАЛ ЗАПИСИ АУДИО ОТДЕЛЬНО
@@ -132,8 +160,10 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func touchDown(_ sender: UIButton) {
         
+        //sender.tapEffect()
+        
         DispatchQueue.main.async {
-            self.pushButton.setImage(UIImage(named: "stopButton"), for: .normal)
+            self.pushButton.setImage(self.imageStop, for: .normal)
         }
         
         // пишем аудио
