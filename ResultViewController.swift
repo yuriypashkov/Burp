@@ -123,16 +123,22 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
         super.viewDidLoad()
        // print(testGuys["Bruce"]!.1)
         
-       // var sum: Float = 0
-        for db in arrayOfDb {
-            if db > maxDb {
-                maxDb = db
-            }
-            //sum += db
-        }
-        //maxDb = sum / Float(arrayOfDb.count)
+        // добавим одно значение в массив чтобы не было ошибок при касании на долю секунды по кнопке
+        arrayOfDb.append(-150.0)
         
-        //print(maxDb)
+        var sum: Float = 0
+        for db in arrayOfDb {
+//            if db > maxDb {
+//                maxDb = db
+//            }
+            if db >= -150 {
+                sum += db
+                print(db)
+            }
+        }
+        maxDb = sum / Float(arrayOfDb.count)
+        
+       // print("Average dB = \(maxDb + 150)")
         
         getCharacter()
         //print("dB = \(maxDb + 200)")
@@ -322,34 +328,34 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
     }
     
     func getCharacter() {
-        let tempDb = 200 + maxDb
+        let tempDb = 150 + maxDb
         switch tempDb {
-        case 0..<188:
-            technics = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
-            artistry = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
-            skill = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
-            charisma = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
-        case 188..<189:
+        case 0..<105:
+            technics = (100 * Double.random(in: 0.1...0.8)).rounded() / 100
+            artistry = (100 * Double.random(in: 0.1...0.8)).rounded() / 100
+            skill = (100 * Double.random(in: 0.1...0.8)).rounded() / 100
+            charisma = (100 * Double.random(in: 0.1...0.8)).rounded() / 100
+        case 105..<110:
             technics = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
             artistry = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
             skill = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
             charisma = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
-        case 189..<190:
+        case 110..<115:
             technics = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
             artistry = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
             skill = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
             charisma = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
-        case 190..<192:
+        case 115..<120:
             technics = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
             artistry = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
             skill = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
             charisma = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
-        case 192..<194:
+        case 120..<125:
             technics = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
             artistry = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
             skill = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
             charisma = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
-        case 194..<196:
+        case 125..<130:
             technics = (100 * Double.random(in: 6.0...7.5)).rounded() / 100
             artistry = (100 * Double.random(in: 6.0...7.5)).rounded() / 100
             skill = (100 * Double.random(in: 6.0...7.5)).rounded() / 100
@@ -384,7 +390,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             charisma += (100 * Double.random(in: 0.1...0.5)).rounded() / 100
         }
         characterSum = technics + artistry + skill + charisma
-        //characterSum = 34.3
+        //characterSum = 6.1
         switch characterSum {
             
         // first range
@@ -656,7 +662,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
         }
         
         //status = "Губка Рыг Рыготные штаны"
-        //print(String(status).count) <19
+        //print(String(status).count)
         
         
         about = guys[String(status)]! as NSString
@@ -717,10 +723,18 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             // поле Артистизм
             drawStr(number: artistry, x: 750, y: 770)
             // поле имя
-            let statusAttributes = [
-                NSAttributedString.Key.font : UIFont.init(name: "v_Billy The Flying Robot BB", size: 82),
-                NSAttributedString.Key.foregroundColor : UIColor.black
-            ]
+            var statusAttributes = [NSAttributedString.Key : NSObject?]()
+            if String(status).count < 20 {
+                statusAttributes = [
+                    NSAttributedString.Key.font : UIFont.init(name: "v_Billy The Flying Robot BB", size: 82),
+                    NSAttributedString.Key.foregroundColor : UIColor.black
+                    ]
+            } else {
+               statusAttributes = [
+                    NSAttributedString.Key.font : UIFont.init(name: "v_Billy The Flying Robot BB", size: 72),
+                    NSAttributedString.Key.foregroundColor : UIColor.black
+                    ]
+            }
             let statusSize = status.size(withAttributes: statusAttributes as [NSAttributedString.Key : Any])
             status.draw(
                 in: CGRect(x: size.width / 2 - statusSize.width / 2, y: 1420, width: statusSize.width, height: statusSize.height

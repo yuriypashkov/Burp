@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rro-PP-2Aj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash-4" translatesAutoresizingMaskIntoConstraints="NO" id="h77-Lj-01M">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startPage" translatesAutoresizingMaskIntoConstraints="NO" id="h77-Lj-01M">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFw-Ml-yY7">
@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="width" constant="150" id="b3h-pa-Vxc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" backgroundImage="ponyal_2"/>
+                                <state key="normal" backgroundImage="Ponyal"/>
                                 <connections>
                                     <action selector="pushButton:" destination="Rro-PP-2Aj" eventType="touchUpInside" id="Env-S7-kfR"/>
                                 </connections>
@@ -187,13 +187,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Splash-4" width="1080" height="1920"/>
+        <image name="Ponyal" width="404" height="186"/>
         <image name="backButton" width="264" height="269"/>
         <image name="back_burp_paper" width="1080" height="1920"/>
         <image name="background_150dpi" width="1080" height="1920"/>
         <image name="burpButton" width="623" height="638"/>
         <image name="instButton" width="272" height="274"/>
-        <image name="ponyal_2" width="200" height="85"/>
         <image name="shareButton" width="659" height="212"/>
+        <image name="startPage" width="1080" height="1920"/>
     </resources>
 </document>

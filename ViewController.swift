@@ -45,9 +45,6 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         
         testBtn.isHidden = true
         
-        // добавим одно значение в массив чтобы не было ошибок при касании на долю секунды по кнопке
-        arrayOfDb.append(-160.0)
-        
         imageStop = UIImage(named: "stopButton")
         
         // пишем отдельно аудио для измерений параметров
