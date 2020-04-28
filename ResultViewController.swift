@@ -20,7 +20,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
     var about: NSString = ""
     var imageName = ""
     
-    var maxDb = arrayOfDb[0]
+    var maxDb: Float = -160.0
     
     var labelStatus: UILabel!
     var labelAbout: UILabel!
@@ -87,7 +87,35 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
                                   "Неверыгятный Рыгк": "Ты готов в любой момент превратиться в отвратительное рыгающее существо зелёного цвета. Не злись, старина!",
                                   "Губка Рыг Рыготные штаны": "Кто прорыгает на дне океана? Именно этот милый, но отрыгительный парень",
                                   "Джон Рыг": "Смертоносный убийца. Известен также как Баба Рыга. Не трожь его пса!",
-                                  "Рыгабло": "Ты рыгающий демон, вылезший в Рыгуарий из бездны ада, чтобы уничтожить все живое"
+                                  "Рыгабло": "Ты рыгающий демон, вылезший в Рыгуарий из бездны ада, чтобы уничтожить все живое",
+                                  "Конор МакРыгор": "Ты прям звезда РыгЭфСи, самый провокационный рыгатор в легком весе",
+                                  "Майк Рыгсон": "Ты можешь откусить человеку ухо, отрыгнуть, сесть в тюрьму и все равно будешь лучшим!",
+                                  "Антонио Бандерыгс": "Ты настоящий эль маррыгачи, красавец и ловелас!",
+                                  "Доктор Рыгус": "Судя по всему, у тебя рыгчанка! Срочно надо взять пункцию отрыжки. И пиво!",
+                                  "Граф Дрыгула": "Вместо пивка ты требуешь пинту кровушки, но отрыжку это не портит!",
+                                  "Рыгулху": "Ты похож на древнего монстра, лежащего на дне океана и ждущего как бы разрушить мир своей рыготой",
+                                  "Рыгакл": "В тебе течет кровь богов, так что совершить двенадцать отрыжечных подвигов для тебя раз плюнуть",
+                                  "Рыгина Рыговицкая": "Ты главарь самого рыготного шабаша на свете. Настоящий Рыгающий дьявол в женском обличии",
+                                  "Рыгги Поп": "Я просто хочу быть твоей  отрыжкой, так погнали!",
+                                  "Чак Рыггис": "Ты настоящий рыгахский рейнджер. Услышав твою отрыжку все резко учатся делить на ноль",
+                                  "Лемми Рыгмистер": "В твоей рыг-колоде всегда найдётся туз пик. Уважаемый человек, твоя харизма говорит сама за себя",
+                                  "Мик Рыггер": "Ты явно любитель красить двери в черный и рыгать на них. Завязывай с этим, браток",
+                                  "Ры Геварра": "Ты рыгаешь, а все слышат: «Но пасаран! Рыга Ля Куба!»",
+                                  "Царь Рыгонид": "Ну вы поняли",
+                                  "Рыгопатра": "Красота твоего рыгания сводит с ума всех вокруг. Никому не устоять перед этой магией",
+                                  "Жанна Д'Рыг": "«Франция будет свободной!» рыгаешь ты. Опасайся открытого огня, кстати",
+                                  "Фрида Рыгло": "Твоя отрыжка - настоящий шедевр, достойный самых известных музеев современного искусства",
+                                  "Старуха Рыгокляк": "Твоей хорошей отрыжкой можно прославиться. Не то что хорошими делами, это каждый знает",
+                                  "Рыгатерина II": "Поумерь свои аппетиты. Фавориты и пиво это, конечно, классно, но и о простом люде забывать не стоит",
+                                  "Рыгли Квинн": "Твоя отрыжка выдает в тебе оторву-суперзлодейку. Укради еще пивка себе и друзьям",
+                                  "Скарлет О'Рыга": "Рыгать рыгай, но только смотри, чтобы тебя не унесло ветром",
+                                  "Ерыгзавета I": "Твоя величественная отрыжка явно знатных кровей. В твоих руках целая империя. Империя пива",
+                                  "Эллен Рыгли": "Своей отрыжкой ты способна победить даже Рыголеву Чужих. А еще ты отлично управляешься со всеми видами огненных жидкостей",
+                                  "Рыгадриэль": "Отрыжка самой могущественной из эльфийских вождей, владычицы Рыголориэна. Рыгоземье может спать спокойно",
+                                  "Фаина Рыгевская": "Уж кто-кто, а ты своей отрыжкой никого не можешь нервировать. Она чертовски хороша!",
+                                  "Рыгафисента": "Отрыжка милой юной феи, легкая и прелестная",
+                                  "Роза Рыгсенбург": "Твоя отрыжка приводит в ужас проклятых буржуев-капиталистов. Будь осторожна, жандармы могут быть повсюду",
+                                  "Рыголева Чужих": "В твоей отрыжке вся мощь и ужас роя рыгоморфов. Но опасайся женщин с огнемётами, они хитры и коварны"
     ]
     
     
@@ -95,26 +123,26 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
         super.viewDidLoad()
        // print(testGuys["Bruce"]!.1)
         
-        // заполняющаяся линия
-        //        let linePath = UIBezierPath()
-        //        linePath.move(to: CGPoint(x: view.frame.size.width / 2, y: view.frame.size.height / 2))
-        //        linePath.addLine(to: CGPoint(x: view.frame.size.width / 2 + 200, y: view.frame.size.height / 2))
-        //        testLine.path = linePath.cgPath
-        //        testLine.lineWidth = 4
-        //        testLine.fillColor = UIColor.red.cgColor
-        //        testLine.strokeColor = UIColor.black.cgColor
-        //        testLine.strokeEnd = 0
-        //        view.layer.addSublayer(testLine)
+        // добавим одно значение в массив чтобы не было ошибок при касании на долю секунды по кнопке
+        arrayOfDb.append(-150.0)
         
+        var sum: Float = 0
         for db in arrayOfDb {
-            if db > maxDb {
-                maxDb = db
+//            if db > maxDb {
+//                maxDb = db
+//            }
+            if db >= -150 {
+                sum += db
+                print(db)
             }
         }
+        maxDb = sum / Float(arrayOfDb.count)
+        
+       // print("Average dB = \(maxDb + 150)")
         
         getCharacter()
-        print("dB = \(maxDb + 200)")
-        print("Duration = \(burpDuration)")
+        //print("dB = \(maxDb + 200)")
+        //print("Duration = \(burpDuration)")
         
         var shapeLayerOne = CAShapeLayer()
         var shapeLayerTwo = CAShapeLayer()
@@ -247,8 +275,10 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             
         }
         
+        if #available(iOS 13.0, *) {
+            self.isModalInPresentation = true
+        }
         
-        self.isModalInPresentation = true // свойство для того чтобы нельзя было смахнуть экран
         restartButton.layer.cornerRadius = restartButton.frame.width / 2
         
     }
@@ -298,34 +328,34 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
     }
     
     func getCharacter() {
-        let tempDb = 200 + maxDb
+        let tempDb = 150 + maxDb
         switch tempDb {
-        case 0..<170:
-            technics = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
-            artistry = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
-            skill = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
-            charisma = (100 * Double.random(in: 0.1...0.5)).rounded() / 100
-        case 170..<180:
+        case 0..<105:
+            technics = (100 * Double.random(in: 0.1...0.8)).rounded() / 100
+            artistry = (100 * Double.random(in: 0.1...0.8)).rounded() / 100
+            skill = (100 * Double.random(in: 0.1...0.8)).rounded() / 100
+            charisma = (100 * Double.random(in: 0.1...0.8)).rounded() / 100
+        case 105..<110:
             technics = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
             artistry = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
             skill = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
             charisma = (100 * Double.random(in: 0.5...2.0)).rounded() / 100
-        case 180..<184:
+        case 110..<115:
             technics = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
             artistry = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
             skill = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
             charisma = (100 * Double.random(in: 1.5...3.0)).rounded() / 100
-        case 184..<188:
+        case 115..<120:
             technics = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
             artistry = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
             skill = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
             charisma = (100 * Double.random(in: 3.0...5.5)).rounded() / 100
-        case 188..<192:
-            technics = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
-            artistry = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
-            skill = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
-            charisma = (100 * Double.random(in: 5.0...6.5)).rounded() / 100
-        case 192..<195:
+        case 120..<125:
+            technics = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
+            artistry = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
+            skill = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
+            charisma = (100 * Double.random(in: 5.0...6.0)).rounded() / 100
+        case 125..<130:
             technics = (100 * Double.random(in: 6.0...7.5)).rounded() / 100
             artistry = (100 * Double.random(in: 6.0...7.5)).rounded() / 100
             skill = (100 * Double.random(in: 6.0...7.5)).rounded() / 100
@@ -339,20 +369,20 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
         
         switch burpDuration {
         case 0..<3:
-            technics += (100 * Double.random(in: 0.5...1)).rounded() / 100
-            artistry += (100 * Double.random(in: 0.5...1)).rounded() / 100
-            skill += (100 * Double.random(in: 0.5...1)).rounded() / 100
-            charisma += (100 * Double.random(in: 0.5...1)).rounded() / 100
+            technics += (100 * Double.random(in: 0.5...0.7)).rounded() / 100
+            artistry += (100 * Double.random(in: 0.5...0.7)).rounded() / 100
+            skill += (100 * Double.random(in: 0.5...0.7)).rounded() / 100
+            charisma += (100 * Double.random(in: 0.5...0.7)).rounded() / 100
         case 3..<5:
-            technics += (100 * Double.random(in: 1...1.5)).rounded() / 100
-            artistry += (100 * Double.random(in: 1...1.5)).rounded() / 100
-            skill += (100 * Double.random(in: 1...1.5)).rounded() / 100
-            charisma += (100 * Double.random(in: 1...1.5)).rounded() / 100
+            technics += (100 * Double.random(in: 0.7...1.0)).rounded() / 100
+            artistry += (100 * Double.random(in: 0.7...1.0)).rounded() / 100
+            skill += (100 * Double.random(in: 0.7...1.0)).rounded() / 100
+            charisma += (100 * Double.random(in: 0.7...1.0)).rounded() / 100
         case 5..<9:
-            technics += (100 * Double.random(in: 1.5...2.0)).rounded() / 100
-            artistry += (100 * Double.random(in: 1.5...2.0)).rounded() / 100
-            skill += (100 * Double.random(in: 1.5...2.0)).rounded() / 100
-            charisma += (100 * Double.random(in: 1.5...2.0)).rounded() / 100
+            technics += (100 * Double.random(in: 1.0...2.0)).rounded() / 100
+            artistry += (100 * Double.random(in: 1.0...2.0)).rounded() / 100
+            skill += (100 * Double.random(in: 1.0...2.0)).rounded() / 100
+            charisma += (100 * Double.random(in: 1.0...2.0)).rounded() / 100
         default:
             technics += (100 * Double.random(in: 0.1...0.5)).rounded() / 100
             artistry += (100 * Double.random(in: 0.1...0.5)).rounded() / 100
@@ -360,174 +390,269 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             charisma += (100 * Double.random(in: 0.1...0.5)).rounded() / 100
         }
         characterSum = technics + artistry + skill + charisma
-        //characterSum = 28.3
+        //characterSum = 6.1
         switch characterSum {
-        case 0..<6:
+            
+        // first range
+        case 0..<4:
             status = "Данила Рыгловский"
             imageName = "danila_ryglovsky"
-        case 6..<7:
+        case 4..<4.4:
             status = "Александр Рыгский"
             imageName = "rygskiy"
-        case 7..<8:
+        case 4.4..<4.8:
             status = "Бритни Срыгс"
             imageName = "britney_srygs"
-        case 8..<9:
+        case 4.8..<5.2:
             status = "Стивен Рыгал"
             imageName = "rygal"
-        case 9..<10:
+        case 5.2..<5.6:
+            status = "Рыгина Рыговицкая"
+            imageName = "rygovitskaya"
+        case 5.6..<6:
             status = "Рыгальф"
             imageName = "rygalf"
-        case 10..<10.5:
+        case 6..<6.4:
             status = "Губка Рыг Рыготные штаны" 
             imageName = "gubka_ryg"
-        case 10.5..<11:
+        case 6.4..<6.8:
             status = "Криштиану Рыгалду"
             imageName = "rigaldu"
-        case 11..<11.5:
+        case 6.8..<7.2:
+            status = "Рыгафисента"
+            imageName = "rygafisenta"
+        case 7.2..<7.6:
             status = "Рыгачу"
             imageName = "rygachu"
-        case 11.5..<12:
+        case 7.6..<8:
             status = "Мухаммед Рыгли"
             imageName = "muh_rygly"
-        case 12..<12.5:
+        case 8..<8.4:
+            status = "Рыгли Квинн"
+            imageName = "rygley_qnn"
+        case 8.4..<8.8:
+            status = "Мик Рыггер"
+            imageName = "mic_ryger"
+        case 8.8..<9.2:
+            status = "Жанна Д'Рыг"
+            imageName = "zhanna_dryg"
+        case 9.2..<9.6:
+            status = "Рыгатерина II"
+            imageName = "rygaterina_second"
+        case 9.6..<10:
+            status = "Конор МакРыгор"
+            imageName = "connor"
+            
+        //second range
+        case 10..<10.5:
             status = "Сильвестр Рыглоне"
             imageName = "ryglone"
-        case 12.5..<13:
+        case 10.5..<11:
             status = "Жан-Клод Рыг Вам"
             imageName = "ryg_vamm"
-        case 13..<13.5:
+        case 11..<11.5:
             status = "Мэрилин Рыгло"
             imageName = "mer_ryglo"
-        case 13.5..<14:
+        case 11.5..<12:
             status = "Рыгомаха"
             imageName = "rygomaha"
-        case 13.5..<14:
+        case 12..<12.5:
             status = "Жан Рыгло"
             imageName = "ryglo"
-        case 13.5..<14:
+        case 12.5..<13:
             status = "Михаил Крыг"
             imageName = "kryg"
+        case 13..<13.5:
+            status = "Скарлет О'Рыга"
+            imageName = "scarlet_ryga"
         case 13.5..<14:
             status = "Фредди Рыггер"
             imageName = "freddy_ryger"
-        case 13.5..<14:
+        case 14..<14.5:
             status = "Чудовище Франкенрыга"
             imageName = "frankenryga"
-        case 14..<14.5:
+        case 14.5..<15:
+            status = "Фрида Рыгло"
+            imageName = "frida_ryglo"
+        case 15..<15.5:
             status = "Папа Рыгский"
             imageName = "papa_rygskiy"
-        case 14.5..<15:
+        case 16..<16.5:
             status = "Форрыг Гамп"
             imageName = "forryg_gump"
-        case 15..<15.5:
+        case 16.5..<17:
             status = "Стас Рыгайлов"
             imageName = "rygailov"
-        case 15.5..<16:
+        case 17..<17.5:
+            status = "Доктор Рыгус"
+            imageName = "rygaus"
+        case 17.5..<18:
+            status = "Граф Дрыгула"
+            imageName = "rygacula"
+        case 18..<18.3:
+            status = "Рыгги Поп"
+            imageName = "ryggy_pop"
+        case 18.3..<18.6:
+            status = "Рыгопатра"
+            imageName = "rygopatra"
+        case 18.6..<19:
+            status = "Старуха Рыгокляк"
+            imageName = "rygoklyak"
+            
+        // third range
+        case 19..<19.5:
             status = "Фифти Рыгс"
             imageName = "50_rygs"
-        case 16..<16.5:
+        case 19.5..<20:
             status = "Элвис Рыгcли"
             imageName = "rygsley"
-        case 16.5..<17:
+        case 20..<20.5:
             status = "Фрэнк Рыгатра"
             imageName = "rygatra"
-        case 17..<17.5:
+        case 20.5..<21:
             status = "Боб Рыглей"
             imageName = "rygley"
-        case 17.5..<18:
+        case 21..<21.5:
             status = "Леонид Рыгутин"
             imageName = "rygutin"
-        case 18..<18.5:
+        case 21.5..<22:
             status = "Брыг Питт"
             imageName = "bryg_pitt"
-        case 18.5..<19:
+        case 22..<22.5:
             status = "Диего Рыгадона"
             imageName = "rygadona"
-        case 19..<19.5:
+        case 22.5..<23:
             status = "Рыгейрис Рыгорожденная"
             imageName = "ryggeris"
-        case 19.5..<20:
+        case 23..<23.5:
             status = "Железный рыговек"
             imageName = "iron_rygovek"
-        case 20..<20.5:
+        case 23.5..<24:
             status = "Оби Рыг Кеноби"
             imageName = "ryg_kenobi"
-        case 20.5..<21:
+        case 24..<24.5:
             status = "Большой Рыгловски"
             imageName = "ryglovsky"
-        case 21..<21.5:
+        case 24.5..<25:
             status = "Рыголас"
             imageName = "rygolas"
-        case 21.5..<22:
+        case 25..<25.3:
             status = "Джон Рыг"
             imageName = "john_ryg"
-        case 22..<22.5:
+        case 25.3..<25.6:
+            status = "Рыгакл"
+            imageName = "rygakl"
+        case 25.6..<25.9:
+            status = "Ерыгзавета I"
+            imageName = "ryglyveta_first"
+        case 25.9..<26.2:
+            status = "Ры Геварра"
+            imageName = "ry_gevarra"
+        case 26.2..<26.6:
+            status = "Эллен Рыгли"
+            imageName = "rigley"
+        case 26.6..<27:
+            status = "Царь Рыгонид"
+            imageName = "rygonid"
+            
+        //fourth range
+        case 27..<27.3:
             status = "Джон Рыголта"
             imageName = "rygolta"
-        case 22.5..<23:
+        case 27.3..<27.6:
             status = "Рыгакоп"
             imageName = "rygocop"
-        case 23..<23.5:
+        case 27.9..<28.2:
+            status = "Фаина Рыгевская"
+            imageName = "rygevskaya"
+        case 28.2..<28.5:
             status = "Квентин Рыгантино"
             imageName = "rygantino"
-        case 23.5..<24:
+        case 28.5..<28.8:
             status = "Рыгающий по лезвию"
             imageName = "ryg_runner"
-        case 24..<24.5:
+        case 28.8..<29.1:
+            status = "Роза Рыгсенбург"
+            imageName = "rygsenburg"
+        case 29.1..<29.4:
             status = "Зэ Рыглс"
             imageName = "rygls"
-        case 24.5..<25:
+        case 29.4..<29.7:
             status = "Оззи Рыгосборн"
             imageName = "ozzi"
-        case 25..<25.5:
+        case 29.7..<30:
             status = "Леонардо Ры Гаприо"
             imageName = "leo_rygaprio"
-        case 25.5..<26:
+        case 30..<30.3:
             status = "Фродо Рыгинс"
             imageName = "frodo_ryggins"
-        case 26..<26.5:
+        case 30.3..<30.6:
             status = "Мэл Рыгсон"
             imageName = "rygson"
-        case 26.5..<27:
+        case 30.6..<30.9:
             status = "Рыгги Поттер"
             imageName = "ryggy_potter"
-        case 27..<27.5:
+        case 30.9..<31.2:
             status = "Алла Рыгачёва"
             imageName = "rygachova"
-        case 27.5..<28:
+        case 31.2..<31.5:
             status = "Рыгальт из Рыгии"
             imageName = "rygalt"
-        case 28..<28.5:
+        case 31.5..<31.8:
             status = "Астерыгс и Оберыгс"
             imageName = "asterygs"
-        case 28.5..<29.5:
+        case 31.8..<32.1:
+            status = "Майк Рыгсон"
+            imageName = "mike_rygson"
+        case 32.1..<32.4:
+            status = "Антонио Бандерыгс"
+            imageName = "rygeros"
+        case 32.4..<32.7:
+            status = "Рыгадриэль"
+            imageName = "rygadriel"
+            
+        // fifth range 0.2
+        case 32.7..<33:
             status = "Неверыгятный Рыгк"
             imageName = "rygalk"
-        case 29.5..<30.5:
+        case 33..<33.3:
             status = "Джейсон Рыгхэм"
             imageName = "ryghem"
-        case 30.5..<31.5:
+        case 33.3..<33.6:
             status = "Арнольд Шварцрыгер"
             imageName = "scvarcrigley"
-        case 31.5..<32.5:
+        case 33.6..<33.9:
+            status = "Чак Рыггис"
+            imageName = "chak_ryggys"
+        case 33.9..<34.2:
+            status = "Рыголева Чужих"
+            imageName = "rygoleva"
+        case 34.2..<34.5:
+            status = "Лемми Рыгмистер"
+            imageName = "lemmy"
+            charisma = 10
+        case 34.5..<34.8:
             status = "Рыг и Рвоти"
             imageName = "ryg_rvoti"
-        case 32.5..<33.5:
+        case 34.8..<35.1:
+            status = "Рыгулху"
+            imageName = "rygulhu"
+        case 35.1..<35.4:
             status = "Рыгабло"
             imageName = "rygablo"
-        case 33.5..<34.5:
+        case 35.4..<35.7:
             status = "Тираннозавр Рыгс"
             imageName = "rygs"
-        case 34.5..<35:
+        case 35.7..<36:
             status = "Рыгзилла"
             imageName = "rygzilla"
-        case 35..<36:
+        case 36..<36.3:
             status = "Киану Рыгс"
             imageName = "kianu_rygs"
-        case 36..<37:
+        case 36.3..<36.6:
             status = "Данни Трэхо"
             imageName = "rygeho"
-        case 37..<38:
+        case 36.6..<36.9:
             status = "Клинт Рыгсвуд"
             imageName = "rygswood"
             
@@ -537,7 +662,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
         }
         
         //status = "Губка Рыг Рыготные штаны"
-        //print(String(status).count) <19
+        //print(String(status).count)
         
         
         about = guys[String(status)]! as NSString
@@ -569,7 +694,7 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
     func createImageForStory(completion: @escaping (_ result: UIImage?, _ error: String?) -> Void) {
         let size = CGSize.init(width: 1080, height: 1920)
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        if let context = UIGraphicsGetCurrentContext() {
+        if UIGraphicsGetCurrentContext() != nil {
             let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
             let image = UIImage(named: "back_burp_result_2")
             image?.draw(in: rect)
@@ -598,10 +723,18 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             // поле Артистизм
             drawStr(number: artistry, x: 750, y: 770)
             // поле имя
-            let statusAttributes = [
-                NSAttributedString.Key.font : UIFont.init(name: "v_Billy The Flying Robot BB", size: 82),
-                NSAttributedString.Key.foregroundColor : UIColor.black
-            ]
+            var statusAttributes = [NSAttributedString.Key : NSObject?]()
+            if String(status).count < 20 {
+                statusAttributes = [
+                    NSAttributedString.Key.font : UIFont.init(name: "v_Billy The Flying Robot BB", size: 82),
+                    NSAttributedString.Key.foregroundColor : UIColor.black
+                    ]
+            } else {
+               statusAttributes = [
+                    NSAttributedString.Key.font : UIFont.init(name: "v_Billy The Flying Robot BB", size: 72),
+                    NSAttributedString.Key.foregroundColor : UIColor.black
+                    ]
+            }
             let statusSize = status.size(withAttributes: statusAttributes as [NSAttributedString.Key : Any])
             status.draw(
                 in: CGRect(x: size.width / 2 - statusSize.width / 2, y: 1420, width: statusSize.width, height: statusSize.height
