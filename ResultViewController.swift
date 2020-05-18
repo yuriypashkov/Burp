@@ -128,12 +128,9 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
         
         var sum: Float = 0
         for db in arrayOfDb {
-//            if db > maxDb {
-//                maxDb = db
-//            }
             if db >= -150 {
                 sum += db
-                print(db)
+                //print(db)
             }
         }
         maxDb = sum / Float(arrayOfDb.count)
@@ -753,11 +750,12 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             about.draw(in: CGRect(x: 100, y: 1500, width: 900, height: 400), withAttributes: aboutAttributes as [NSAttributedString.Key : Any])
         
             let profileImage = UIImage(named: imageName)
-                    let rectImage = CGRect(x: 290 , y: 830, width: 500, height: 568)
+            let rectImage = CGRect(x: 290 , y: 830, width: 500, height: 568)
                     //let bezierPath = UIBezierPath(arcCenter: CGPoint(x: rectImage.midX, y: rectImage.midY), radius: 98, startAngle: 0, endAngle: 2.0*CGFloat(Double.pi), clockwise: true)
                     //context.addPath(bezierPath.cgPath)
                     //context.clip()
-                    profileImage?.draw(in: rectImage)
+                    //profileImage?.draw(in: rectImage)
+            profileImage?.draw(in: rectImage, blendMode: .normal, alpha: 1.0)
             
                     if let newImage = UIGraphicsGetImageFromCurrentImageContext() {
                         UIGraphicsEndImageContext()

@@ -3,7 +3,6 @@
 import UIKit
 import AVFoundation
 import Photos
-//import Speech
 
 var arrayOfDb = [Float]()
 var burpDuration: Double = 0.0
@@ -46,7 +45,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         testBtn.isHidden = true
         
         imageStop = UIImage(named: "stopButton")
-        
+ 
         // пишем отдельно аудио для измерений параметров
         recordingSession = AVAudioSession.sharedInstance()
         recordingSession.requestRecordPermission { (allowed) in
@@ -114,7 +113,6 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func finishRecording(success: Bool) {
-       // print("\(String(format: "%.2f", audioRecorder.currentTime))")
         audioRecorder.stop()
         audioRecorder.deleteRecording()
         audioRecorder = nil
@@ -139,7 +137,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func pushStart(_ sender: Any) {
         
         pushButton.setImage(UIImage(named: "burpButton"), for: .normal)
-        
+        //pushButton.alpha = 1.0
         
         
         burpDuration = audioRecorder.currentTime
@@ -162,10 +160,13 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func touchDown(_ sender: UIButton) {
         
-        //sender.tapEffect()
-        
         DispatchQueue.main.async {
-            self.pushButton.setImage(self.imageStop, for: .normal)
+            //sender.setImage(self.imageStop, for: .normal)
+            sender.setImage(UIImage(named: "stopButton"), for: .normal)
+            //sender.alpha = 0.1
+            //sender.reloadInputViews()
+            //sender.setBackgroundImage(self.imageStop, for: .normal)
+            //self.pushButton.backgroundColor = .red
         }
         
         // пишем аудио
