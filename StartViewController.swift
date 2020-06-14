@@ -24,8 +24,6 @@ class StartViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var textLabel: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +34,11 @@ class StartViewController: UIViewController {
 //        За использование криков, разговоров и других посторонних звуков вы будете прокляты во веки веков.
 //        """
         //textLabel.isHidden = true
-        textLabel.text = """
-        1. Зажми и удерживай зелёную кнопку с надписью "Рыгать".
-        2. Наберись духа и как следует рыгни в свой телефон.
-        3. Отпусти кнопку и наслаждайся результатом.
-        """
+//        textLabel.text = """
+//        1. Зажми и удерживай зелёную кнопку с надписью "Рыгать".
+//        2. Наберись духа и как следует рыгни в свой телефон.
+//        3. Отпусти кнопку и наслаждайся результатом.
+//        """
         
         
     }
