@@ -26,9 +26,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>$(PRODUCT_NAME) usage a Mic</string>
+	<string>Это необходимо для того, чтобы оценить всю красоту и мощь вашей отрыжки</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(PRODUCT_NAME) usage a Photo</string>
+	<string>Это необходимо для сохранения фотографии с вашими результатами</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>burpFont.otf</string>
