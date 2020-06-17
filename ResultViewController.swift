@@ -394,268 +394,270 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
         case 0..<4:
             status = "Данила Рыгловский"
             imageName = "danila_ryglovsky"
-        case 4..<4.4:
+        case 4..<4.6:
             status = "Александр Рыгский"
             imageName = "rygskiy"
-        case 4.4..<4.8:
-            status = "Бритни Срыгс"
-            imageName = "britney_srygs"
-        case 4.8..<5.2:
-            status = "Стивен Рыгал"
-            imageName = "rygal"
-        case 5.2..<5.6:
+//        case 4.4..<4.8:
+//            status = "Бритни Срыгс"
+//            imageName = "britney_srygs"
+//        case 4.8..<5.2:
+//            status = "Стивен Рыгал"
+//            imageName = "rygal"
+        case 4.6..<5.2:
             status = "Рыгина Рыговицкая"
             imageName = "rygovitskaya"
-        case 5.6..<6:
+        case 5.2..<5.8:
             status = "Рыгальф"
             imageName = "rygalf"
-        case 6..<6.4:
+        case 5.8..<6.4:
             status = "Губка Рыг Рыготные штаны" 
             imageName = "gubka_ryg"
-        case 6.4..<6.8:
-            status = "Криштиану Рыгалду"
-            imageName = "rigaldu"
-        case 6.8..<7.2:
+//        case 6.4..<6.8:
+//            status = "Криштиану Рыгалду"
+//            imageName = "rigaldu"
+        case 6.4..<7.0:
             status = "Рыгафисента"
             imageName = "rygafisenta"
-        case 7.2..<7.6:
+        case 7.0..<7.6:
             status = "Рыгачу"
             imageName = "rygachu"
-        case 7.6..<8:
-            status = "Мухаммед Рыгли"
-            imageName = "muh_rygly"
-        case 8..<8.4:
+//        case 7.6..<8:
+//            status = "Мухаммед Рыгли"
+//            imageName = "muh_rygly"
+        case 7.6..<8.2:
             status = "Рыгли Квинн"
             imageName = "rygley_qnn"
-        case 8.4..<8.8:
-            status = "Мик Рыггер"
-            imageName = "mic_ryger"
-        case 8.8..<9.2:
+//        case 8.4..<8.8:
+//            status = "Мик Рыггер"
+//            imageName = "mic_ryger"
+        case 8.8..<9.4:
             status = "Жанна Д'Рыг"
             imageName = "zhanna_dryg"
-        case 9.2..<9.6:
+        case 9.4..<10.0:
             status = "Рыгатерина II"
             imageName = "rygaterina_second"
-        case 9.6..<10:
-            status = "Конор МакРыгор"
-            imageName = "connor"
+//        case 9.6..<10:
+//            status = "Конор МакРыгор"
+//            imageName = "connor"
             
         //second range
-        case 10..<10.5:
-            status = "Сильвестр Рыглоне"
-            imageName = "ryglone"
-        case 10.5..<11:
-            status = "Жан-Клод Рыг Вам"
-            imageName = "ryg_vamm"
-        case 11..<11.5:
+//        case 10..<10.5:
+//            status = "Сильвестр Рыглоне"
+//            imageName = "ryglone"
+//        case 10.5..<11:
+//            status = "Жан-Клод Рыг Вам"
+//            imageName = "ryg_vamm"
+        case 10.0..<10.6:
             status = "Мэрилин Рыгло"
             imageName = "mer_ryglo"
-        case 11.5..<12:
+        case 10.6..<11.2:
             status = "Рыгомаха"
             imageName = "rygomaha"
-        case 12..<12.5:
-            status = "Жан Рыгло"
-            imageName = "ryglo"
-        case 12.5..<13:
+//        case 12..<12.5:
+//            status = "Жан Рыгло"
+//            imageName = "ryglo"
+        case 11.2..<11.8:
             status = "Михаил Крыг"
             imageName = "kryg"
-        case 13..<13.5:
+        case 11.8..<12.4:
             status = "Скарлет О'Рыга"
             imageName = "scarlet_ryga"
-        case 13.5..<14:
+        case 12.4..<13.0:
             status = "Фредди Рыггер"
             imageName = "freddy_ryger"
-        case 14..<14.5:
+        case 13.0..<13.6:
             status = "Чудовище Франкенрыга"
             imageName = "frankenryga"
-        case 14.5..<15:
+        case 13.6..<14.2:
             status = "Фрида Рыгло"
             imageName = "frida_ryglo"
-        case 15..<15.5:
-            status = "Папа Рыгский"
-            imageName = "papa_rygskiy"
-        case 16..<16.5:
+//        case 15..<15.5:
+//            status = "Папа Рыгский"
+//            imageName = "papa_rygskiy"
+        case 14.2..<14.8:
             status = "Форрыг Гамп"
             imageName = "forryg_gump"
-        case 16.5..<17:
-            status = "Стас Рыгайлов"
-            imageName = "rygailov"
-        case 17..<17.5:
+//        case 16.5..<17:
+//            status = "Стас Рыгайлов"
+//            imageName = "rygailov"
+        case 14.8..<15.4:
             status = "Доктор Рыгус"
             imageName = "rygaus"
-        case 17.5..<18:
+        case 15.4..<16.0:
             status = "Граф Дрыгула"
             imageName = "rygacula"
-        case 18..<18.3:
-            status = "Рыгги Поп"
-            imageName = "ryggy_pop"
-        case 18.3..<18.6:
+//        case 18..<18.3:
+//            status = "Рыгги Поп"
+//            imageName = "ryggy_pop"
+        case 16.0..<16.6:
             status = "Рыгопатра"
             imageName = "rygopatra"
-        case 18.6..<19:
+        case 16.6..<17.2:
             status = "Старуха Рыгокляк"
             imageName = "rygoklyak"
             
         // third range
-        case 19..<19.5:
-            status = "Фифти Рыгс"
-            imageName = "50_rygs"
-        case 19.5..<20:
+//        case 19..<19.5:
+//            status = "Фифти Рыгс"
+//            imageName = "50_rygs"
+        case 17.2..<17.8:
             status = "Элвис Рыгcли"
             imageName = "rygsley"
-        case 20..<20.5:
+        case 17.8..<18.4:
             status = "Фрэнк Рыгатра"
             imageName = "rygatra"
-        case 20.5..<21:
+        case 18.4..<19.0:
             status = "Боб Рыглей"
             imageName = "rygley"
-        case 21..<21.5:
+        case 19.0..<19.6:
             status = "Леонид Рыгутин"
             imageName = "rygutin"
-        case 21.5..<22:
-            status = "Брыг Питт"
-            imageName = "bryg_pitt"
-        case 22..<22.5:
-            status = "Диего Рыгадона"
-            imageName = "rygadona"
-        case 22.5..<23:
+//        case 21.5..<22:
+//            status = "Брыг Питт"
+//            imageName = "bryg_pitt"
+//        case 22..<22.5:
+//            status = "Диего Рыгадона"
+//            imageName = "rygadona"
+        case 19.6..<20.2:
             status = "Рыгейрис Рыгорожденная"
             imageName = "ryggeris"
-        case 23..<23.5:
+        case 20.2..<20.8:
             status = "Железный рыговек"
             imageName = "iron_rygovek"
-        case 23.5..<24:
+        case 20.8..<21.4:
             status = "Оби Рыг Кеноби"
             imageName = "ryg_kenobi"
-        case 24..<24.5:
+        case 21.4..<22.0:
             status = "Большой Рыгловски"
             imageName = "ryglovsky"
-        case 24.5..<25:
+        case 22.0..<22.6:
             status = "Рыголас"
             imageName = "rygolas"
-        case 25..<25.3:
+        case 22.6..<23.2:
             status = "Джон Рыг"
             imageName = "john_ryg"
-        case 25.3..<25.6:
+        case 23.2..<23.8:
             status = "Рыгакл"
             imageName = "rygakl"
-        case 25.6..<25.9:
+        case 23.8..<24.4:
             status = "Ерыгзавета I"
             imageName = "ryglyveta_first"
-        case 25.9..<26.2:
+        case 24.4..<25.0:
             status = "Ры Геварра"
             imageName = "ry_gevarra"
-        case 26.2..<26.6:
+        case 25.0..<25.6:
             status = "Эллен Рыгли"
             imageName = "rigley"
-        case 26.6..<27:
+        case 25.6..<26.2:
             status = "Царь Рыгонид"
             imageName = "rygonid"
             
         //fourth range
-        case 27..<27.3:
-            status = "Джон Рыголта"
-            imageName = "rygolta"
-        case 27.3..<27.6:
+//        case 27..<27.3:
+//            status = "Джон Рыголта"
+//            imageName = "rygolta"
+        case 26.2..<26.8:
             status = "Рыгакоп"
             imageName = "rygocop"
-        case 27.9..<28.2:
+        case 26.8..<27.4:
             status = "Фаина Рыгевская"
             imageName = "rygevskaya"
-        case 28.2..<28.5:
-            status = "Квентин Рыгантино"
-            imageName = "rygantino"
-        case 28.5..<28.8:
+//        case 28.2..<28.5:
+//            status = "Квентин Рыгантино"
+//            imageName = "rygantino"
+        case 27.4..<28.0:
             status = "Рыгающий по лезвию"
             imageName = "ryg_runner"
-        case 28.8..<29.1:
+        case 28.0..<28.6:
             status = "Роза Рыгсенбург"
             imageName = "rygsenburg"
-        case 29.1..<29.4:
-            status = "Зэ Рыглс"
-            imageName = "rygls"
-        case 29.4..<29.7:
-            status = "Оззи Рыгосборн"
-            imageName = "ozzi"
-        case 29.7..<30:
-            status = "Леонардо Ры Гаприо"
-            imageName = "leo_rygaprio"
-        case 30..<30.3:
+//        case 29.1..<29.4:
+//            status = "Зэ Рыглс"
+//            imageName = "rygls"
+//        case 29.4..<29.7:
+//            status = "Оззи Рыгосборн"
+//            imageName = "ozzi"
+//        case 29.7..<30:
+//            status = "Леонардо Ры Гаприо"
+//            imageName = "leo_rygaprio"
+        case 28.6..<29.2:
             status = "Фродо Рыгинс"
             imageName = "frodo_ryggins"
-        case 30.3..<30.6:
-            status = "Мэл Рыгсон"
-            imageName = "rygson"
-        case 30.6..<30.9:
+//        case 30.3..<30.6:
+//            status = "Мэл Рыгсон"
+//            imageName = "rygson"
+        case 29.2..<29.6:
             status = "Рыгги Поттер"
             imageName = "ryggy_potter"
-        case 30.9..<31.2:
+        case 29.6..<30.2:
             status = "Алла Рыгачёва"
             imageName = "rygachova"
-        case 31.2..<31.5:
+        case 30.2..<30.8:
             status = "Рыгальт из Рыгии"
             imageName = "rygalt"
-        case 31.5..<31.8:
+        case 30.8..<31.4:
             status = "Астерыгс и Оберыгс"
             imageName = "asterygs"
-        case 31.8..<32.1:
-            status = "Майк Рыгсон"
-            imageName = "mike_rygson"
-        case 32.1..<32.4:
-            status = "Антонио Бандерыгс"
-            imageName = "rygeros"
-        case 32.4..<32.7:
+//        case 31.8..<32.1:
+//            status = "Майк Рыгсон"
+//            imageName = "mike_rygson"
+//        case 32.1..<32.4:
+//            status = "Антонио Бандерыгс"
+//            imageName = "rygeros"
+        case 31.4..<32.0:
             status = "Рыгадриэль"
             imageName = "rygadriel"
             
         // fifth range 0.2
-        case 32.7..<33:
+        case 32.0..<32.6:
             status = "Неверыгятный Рыгк"
             imageName = "rygalk"
-        case 33..<33.3:
-            status = "Джейсон Рыгхэм"
-            imageName = "ryghem"
-        case 33.3..<33.6:
-            status = "Арнольд Шварцрыгер"
-            imageName = "scvarcrigley"
-        case 33.6..<33.9:
-            status = "Чак Рыггис"
-            imageName = "chak_ryggys"
-        case 33.9..<34.2:
+//        case 33..<33.3:
+//            status = "Джейсон Рыгхэм"
+//            imageName = "ryghem"
+//        case 33.3..<33.6:
+//            status = "Арнольд Шварцрыгер"
+//            imageName = "scvarcrigley"
+//        case 33.6..<33.9:
+//            status = "Чак Рыггис"
+//            imageName = "chak_ryggys"
+        case 32.6..<33.2:
             status = "Рыголева Чужих"
             imageName = "rygoleva"
-        case 34.2..<34.5:
+        case 33.2..<33.8:
             status = "Лемми Рыгмистер"
             imageName = "lemmy"
             charisma = 10
-        case 34.5..<34.8:
+        case 33.8..<34.4:
             status = "Рыг и Рвоти"
             imageName = "ryg_rvoti"
-        case 34.8..<35.1:
+        case 34.4..<35.0:
             status = "Рыгулху"
             imageName = "rygulhu"
-        case 35.1..<35.4:
-            status = "Рыгабло"
-            imageName = "rygablo"
-        case 35.4..<35.7:
+//        case 35.1..<35.4:
+//            status = "Рыгабло"
+//            imageName = "rygablo"
+        case 35.0..<35.6:
             status = "Тираннозавр Рыгс"
             imageName = "rygs"
-        case 35.7..<36:
+        case 35.6..<36.0:
             status = "Рыгзилла"
             imageName = "rygzilla"
-        case 36..<36.3:
-            status = "Киану Рыгс"
-            imageName = "kianu_rygs"
-        case 36.3..<36.6:
-            status = "Данни Трэхо"
-            imageName = "rygeho"
-        case 36.6..<36.9:
-            status = "Клинт Рыгсвуд"
-            imageName = "rygswood"
+//        case 36..<36.3:
+//            status = "Киану Рыгс"
+//            imageName = "kianu_rygs"
+//        case 36.3..<36.6:
+//            status = "Данни Трэхо"
+//            imageName = "rygeho"
+//        case 36.6..<36.9:
+//            status = "Клинт Рыгсвуд"
+//            imageName = "rygswood"
             
         default:
-            status = "Брюс Рыглис"
-            imageName = "ryglis"
+//            status = "Брюс Рыглис"
+//            imageName = "ryglis"
+            status = "Рыгабло"
+            imageName = "rygablo"
         }
         
         //status = "Губка Рыг Рыготные штаны"
