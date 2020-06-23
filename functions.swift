@@ -23,7 +23,6 @@ extension UIButton {
         //pulse.damping = 1.0
         pulse.toValue = 0.9
         pulse.autoreverses = true
-        //pulse.repeatCount = 0
         layer.add(pulse, forKey: nil)
     }
     

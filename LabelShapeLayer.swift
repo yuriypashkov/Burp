@@ -16,8 +16,8 @@ class LabelShapeLayer: CAShapeLayer {
         myLabel.textColor = .black
         //myLabel.font = UIFont.init(name: "AM Krang Appizza DEMO", size: 16)
         //myLabel.font = UIFont.init(name: "flix cyr", size: 24)
-        myLabel.font = UIFont.init(name: "v_Billy The Flying Robot BB", size: 24)
         
+        myLabel.font = UIFont.init(name: "v_Billy The Flying Robot BB", size: 24)
         
         myValue = UILabel(frame: CGRect(x: 0, y: 0, width: 65, height: 60))
         myValue.center = CGPoint(x: x, y: y)
