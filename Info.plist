@@ -26,7 +26,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Это необходимо для того, чтобы оценить всю красоту и мощь вашей отрыжки</string>
+	<string>Это необходимо для того, чтобы приложение могло оценить издаваемые вами звуки</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Это необходимо для сохранения фотографии с вашими результатами</string>
 	<key>UIAppFonts</key>
