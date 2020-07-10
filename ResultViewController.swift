@@ -26,6 +26,11 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
     var labelAbout: UILabel!
     var mainImage: UIImageView!
     
+    var labelVolume: UILabel!
+    var labelDuration: UILabel!
+    var labelForVolume: UILabel!
+    var labelForDuration: UILabel!
+    
     var countOfAnimation = 0
     
     
@@ -135,8 +140,6 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
         }
         maxDb = sum / Float(arrayOfDb.count)
         
-       // print("Average dB = \(maxDb + 150)")
-        
         getCharacter()
         //print("dB = \(maxDb + 200)")
         //print("Duration = \(burpDuration)")
@@ -209,6 +212,42 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             
         }
         
+        func createVolumeAndDuration(fontSize: CGFloat) {
+            // надпись Громкость
+            labelForVolume = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+            labelForVolume.center = CGPoint(x: view.frame.size.width / 6, y: view.frame.size.height / 2)
+            labelForVolume.textAlignment = .center
+            labelForVolume.text = "ШУМ"
+            labelForVolume.textColor = .black
+            labelForVolume.font = UIFont.init(name: "v_Billy The Flying Robot BB", size: fontSize + 4)
+            
+            // значение громкость
+            labelVolume = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+            labelVolume.center = CGPoint(x: view.frame.size.width / 6, y: view.frame.size.height / 2 + 30)
+            labelVolume.textAlignment = .center
+            let temp = String(format: "%.1f", maxDb + 76)
+            labelVolume.text = maxDb == -150.0 ? "0 dB" : "\(temp) dB"
+            labelVolume.textColor = UIColor(red: 68/255, green: 45/255, blue: 0/255, alpha: 1.0)
+            labelVolume.font = UIFont.init(name: "v_Billy The Flying Robot BB", size: fontSize)
+            
+            // Надпись Время
+            labelForDuration = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+            labelForDuration.center = CGPoint(x: 5 * view.frame.size.width / 6, y: view.frame.size.height / 2)
+            labelForDuration.textAlignment = .center
+            labelForDuration.text = "ВРЕМЯ"
+            labelForDuration.textColor = .black
+            labelForDuration.font = UIFont.init(name: "v_Billy The Flying Robot BB", size: fontSize + 4)
+            
+            // значение время
+            let tempDuration = String(format: "%.1f", burpDuration)
+            labelDuration = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+            labelDuration.center = CGPoint(x: 5 * view.frame.size.width / 6, y: view.frame.size.height / 2 + 30)
+            labelDuration.textAlignment = .center
+            labelDuration.text = "\(tempDuration) с."
+            labelDuration.textColor = UIColor(red: 68/255, green: 45/255, blue: 0/255, alpha: 1.0)
+            labelDuration.font = UIFont.init(name: "v_Billy The Flying Robot BB", size: fontSize)
+        }
+        
         // для iPhoneSE все делаем поменьше
         if UIScreen.main.bounds.height < 667 {
             createRounds(withRadius: 30)
@@ -220,6 +259,8 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             mainImage.image = UIImage(named: imageName)
             
             createStatusAndAbout(width: 300, statusSize: 28, aboutSize: 17)
+            
+            createVolumeAndDuration(fontSize: 22)
 
         }
         // для остальных побольше
@@ -233,6 +274,8 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             mainImage.image = UIImage(named: imageName)
             
             createStatusAndAbout(width: 315, statusSize: 32, aboutSize: 20)
+            
+            createVolumeAndDuration(fontSize: 26)
         }
         
 
@@ -286,6 +329,10 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             view.addSubview(labelStatus)
             view.addSubview(labelAbout)
             view.addSubview(mainImage)
+            view.addSubview(labelVolume)
+            view.addSubview(labelForVolume)
+            view.addSubview(labelForDuration)
+            view.addSubview(labelDuration)
         }
     }
     
@@ -658,10 +705,6 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             imageName = "ryglis"
         }
         
-        //status = "Губка Рыг Рыготные штаны"
-        //print(String(status).count)
-        
-        
         about = guys[String(status)]! as NSString
 //        print("Technics = \(technics)")
 //        print("Charisma = \(charisma)")
@@ -749,13 +792,9 @@ class ResultViewController: UIViewController, CAAnimationDelegate {
             //let aboutSize = about.size(withAttributes: aboutAttributes as [NSAttributedString.Key : Any])
             about.draw(in: CGRect(x: 100, y: 1500, width: 900, height: 400), withAttributes: aboutAttributes as [NSAttributedString.Key : Any])
         
-            let profileImage = UIImage(named: imageName)
+            let characterImage = UIImage(named: imageName)
             let rectImage = CGRect(x: 290 , y: 830, width: 500, height: 568)
-                    //let bezierPath = UIBezierPath(arcCenter: CGPoint(x: rectImage.midX, y: rectImage.midY), radius: 98, startAngle: 0, endAngle: 2.0*CGFloat(Double.pi), clockwise: true)
-                    //context.addPath(bezierPath.cgPath)
-                    //context.clip()
-                    //profileImage?.draw(in: rectImage)
-            profileImage?.draw(in: rectImage, blendMode: .normal, alpha: 1.0)
+            characterImage?.draw(in: rectImage, blendMode: .normal, alpha: 1.0)
             
                     if let newImage = UIGraphicsGetImageFromCurrentImageContext() {
                         UIGraphicsEndImageContext()
